@@ -6,9 +6,222 @@
       {
         "id": "0191866cebf1b7c3",
         "type": "tabs",
+        "dimension": 41.398116013882,
         "children": [
           {
-            "id": "60ccb8b74e272dda",
+            "id": "541a7bf5f00a8a0f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/learning/Application Design.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d2a032a64dfd7778",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/concepts/LikertSurvey/implementation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "222e6a722040c92d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/concepts/Friending/test-output.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2aa35c88c8189487",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/learning/Application Design.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2ce83d6801ac87e2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "context/design/brainstorming/fixing-Friending.md/steps/response.8091ec02.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2136a7c40a262b20",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/background/concept-specifications.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "28172b79c6ef09ab",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/concepts/ArcTracking/testing.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "84cf1329a6abf7a3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/concepts/ArcTracking/ArcTracking.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "773ce98f9fad4d25",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/brainstorming/questioning.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "309c01f674c9f8e8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/concepts/Friending/Friending.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "49abde627503bf11",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/concepts/LikertSurvey/implementation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      },
+      {
+        "id": "2e6b74435ec1deb2",
+        "type": "tabs",
+        "dimension": 58.601883986118,
+        "children": [
+          {
+            "id": "2c27709ad47a5061",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/learning/Application Design.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0576cd24073fe638",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/brainstorming/fixing-Friending.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "50bee923029c2d8e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/brainstorming/questioning.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "913fbf8e142d603c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/concepts/Friending/implementation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d7ba6d26bef20fe1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/concepts/Rewarding/implementation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b9942c91033060a8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/concepts/LikertSurvey/implementation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d3bf8b54db928c3d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -16,12 +229,11 @@
                 "file": "README.md",
                 "mode": "source",
                 "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README"
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -40,11 +252,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
+                "sortOrder": "alphabetical"
+              }
             }
           },
           {
@@ -59,9 +268,7 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
+              }
             }
           },
           {
@@ -69,9 +276,7 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "state": {}
             }
           }
         ]
@@ -94,7 +299,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "design/brainstorming/fixing-Friending.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,9 +307,7 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              }
             }
           },
           {
@@ -113,12 +316,10 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "design/brainstorming/fixing-Friending.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from README"
+              }
             }
           },
           {
@@ -128,12 +329,8 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+                "useHierarchy": true
+              }
             }
           },
           {
@@ -142,13 +339,8 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of README"
+                "file": "design/brainstorming/fixing-Friending.md"
+              }
             }
           }
         ]
@@ -165,12 +357,49 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "60ccb8b74e272dda",
+  "active": "0576cd24073fe638",
   "lastOpenFiles": [
-    "README.md"
+    "design/concepts/Friending/test-output.md",
+    "context/design/concepts/Friending/test-output.md/steps/_.23927876.md",
+    "context/design/concepts/Friending/test-output.md/steps",
+    "context/design/concepts/Friending/test-output.md/20251023_040617.5c9108e8.md",
+    "context/design/concepts/Friending/test-output.md",
+    "design/concepts/Friending/design.md",
+    "context/design/concepts/Friending/design.md/20251023_040523.ecb7e5e2.md",
+    "context/design/concepts/Friending/design.md/steps/After modifications.8b633716.md",
+    "design/concepts/LikertSurvey/implementation.md",
+    "design/concepts/LikertSurvey/testing.md",
+    "design/brainstorming/fixing-Friending.md",
+    "design/concepts/Friending/implementation.md",
+    "context/design/concepts/Friending/implementation.md/steps/response.720078fd.md",
+    "context/design/concepts/Friending/implementation.md/20251023_030532.9635dae3.md",
+    "context/design/concepts/Friending/implementation.md/steps/prompt.24f91064.md",
+    "context/design/concepts/Friending/implementation.md/steps/response.dff0dca3.md",
+    "context/design/concepts/Friending/implementation.md/20251023_025815.e2ed9320.md",
+    "context/design/concepts/Friending/implementation.md/steps/prompt.7cc53d51.md",
+    "README.md",
+    "context/design/concepts/Friending/implementation.md/steps/response.9a11ca8a.md",
+    "context/design/concepts/Friending/implementation.md/20251023_025554.914f24d7.md",
+    "context/design/concepts/Friending/implementation.md/steps/prompt.3c59ca21.md",
+    "context/design/concepts/Friending/implementation.md/steps/response.d357686a.md",
+    "context/design/concepts/Friending/implementation.md/20251023_025455.1ff2cff4.md",
+    "context/design/concepts/Friending/implementation.md/steps/prompt.c56fd296.md",
+    "design/concepts/Friending/testing.md",
+    "context/design/concepts/Friending/testing.md/steps/response.8e1adc9d.md",
+    "context/design/concepts/Friending/testing.md/steps",
+    "src/concepts/friending/FriendingConcept.test.ts",
+    "src/concepts/friending/FriendingConcept.ts",
+    "src/concepts/friending",
+    "context/design/concepts/Friending/implementation.md/steps",
+    "context/design/concepts/Friending/design.md/steps",
+    "context/design/concepts/Friending",
+    "context/design/brainstorming/fixing-Friending.md/steps",
+    "context/design/brainstorming/original-application-idea.md/steps",
+    "media/linking.png",
+    "media/relative_linking.png",
+    "media/obsidian_settings.png"
   ]
 }

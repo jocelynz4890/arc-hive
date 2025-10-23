@@ -1,1 +1,4 @@
-# prompt: Why ... ?
+# prompt: Why am I alive ?
+# response:
+idk
+
