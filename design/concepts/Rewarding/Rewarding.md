@@ -8,14 +8,16 @@ concept Rewarding
     
     state
         a set of Rewards with
-            a User User
-            Points Number
-            Avatars Set of Avatar
+            a user User
+            a points Number
+            a set of Avatars
 
         a set of Avatars with
             a Name String
             a Rarity {common, rare, epic, legendary}
-            a StatAffinity Map<Stat, Number>
+            a set of StatAffinity with
+	            a stat String {HP, Stamina, Strength, Agility, Intelligence}
+	            a number Number
     
     actions
         initializeRewards (user: User)

@@ -1,0 +1,1 @@
+I made a few small syntax changes but left everything else intact. I didn't find much to change with this concept.

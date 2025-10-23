@@ -16,7 +16,12 @@ The resulting output was disappointing, since the syntax errors in the generated
 
 
 ## 3. LLM seemed to require more context: left many comments starting with "In a real-world scenario..."
+The LLM didn't seem to understand the purpose of the implementation, and left comments 
+
 
 ## 4. LLM always makes the same bugs: resolving path to the concept implementation file from the test file and jsr:@std/assert
 
+
 ## 5. Hallucinated the import path to a module: https://deno.land/x/bcrypt@0.4.0/mod.ts
+
+## 6. The constructor was generated twice.

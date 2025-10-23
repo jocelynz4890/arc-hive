@@ -1,10 +1,9 @@
-[@testing-concepts](../../background/testing-concepts.md)
+---
+timestamp: 'Thu Oct 23 2025 17:45:02 GMT-0400 (Eastern Daylight Time)'
+parent: '[[../20251023_174502.fdff9810.md]]'
+content_id: c7d483866bbd2002b136072c575f7ec3688c7e14738196c1e5a1d24660261072
+---
 
-[@ArcTracking](ArcTracking.md)
-
-[@implementation](implementation.md)
-
-# test: ArcTracking
 # response:
 
 ```typescript

@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/ArcTracking/ArcTracking.md",
+                "file": "design/concepts/ArcTracking/implementation.md",
                 "mode": "source",
                 "source": false
               }
@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/ArcTracking/ArcTracking.md",
+                "file": "design/concepts/ArcTracking/testing.md",
                 "mode": "source",
                 "source": false
               }
@@ -50,7 +50,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/ArcTracking/testing.md",
+                "file": "design/background/detailed/concept-state.md",
                 "mode": "source",
                 "source": false
               }
@@ -118,7 +118,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/learning/Application Design.md",
+                "file": "design/concepts/ArcTracking/ArcTracking.md",
                 "mode": "source",
                 "source": false
               }
@@ -130,7 +130,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/Authentication/Authentication.md",
+                "file": "design/learning/Application Design.md",
                 "mode": "source",
                 "source": false
               }
@@ -142,7 +142,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/Friending/Friending.md",
+                "file": "design/concepts/ArcTracking/ArcTracking.md",
                 "mode": "source",
                 "source": false
               }
@@ -154,7 +154,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/Friending/Friending.md",
+                "file": "design/concepts/ArcTracking/design.md",
                 "mode": "source",
                 "source": false
               }
@@ -166,7 +166,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/Authentication/design.md",
+                "file": "design/concepts/Rewarding/Rewarding.md",
                 "mode": "source",
                 "source": false
               }
@@ -220,7 +220,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -347,34 +348,37 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d2a032a64dfd7778",
+  "active": "2c27709ad47a5061",
   "lastOpenFiles": [
-    "design/concepts/StatTracking/test-output.md",
-    "design/concepts/Authentication/test-output.md",
-    "design/concepts/StatTracking/StatTracking.md",
-    "design/concepts/StatTracking/implementation.md",
+    "design/concepts/ArcTracking/design.md",
     "design/concepts/Authentication/design.md",
-    "design/concepts/Authentication/Authentication.md",
-    "design/concepts/StatTracking/testing.md",
-    "design/concepts/Authentication/testing.md",
-    "context/design/concepts/StatTracking/testing.md/steps/response.32b50a1d.md",
-    "context/design/concepts/StatTracking/testing.md/steps/test.e58ed568.md",
-    "context/design/concepts/StatTracking/testing.md/steps/response.e1c3585e.md",
-    "context/design/concepts/StatTracking/testing.md/steps/response.c57f3899.md",
-    "context/design/concepts/StatTracking/testing.md/steps/prompt.11b97506.md",
-    "context/design/concepts/StatTracking/testing.md/steps/implement.5d9d1c86.md",
-    "context/design/concepts/StatTracking/testing.md/steps/approach.5df2171f.md",
-    "context/design/concepts/StatTracking/testing.md/steps/approach.3e0d5a8f.md",
-    "context/design/concepts/StatTracking/testing.md/steps/_.db39d951.md",
-    "context/design/concepts/StatTracking/testing.md/steps/_.b0364a7a.md",
-    "context/design/concepts/StatTracking/testing.md/steps/_.ae61325b.md",
-    "context/design/concepts/StatTracking/testing.md/steps/_.903f9d68.md",
-    "context/design/concepts/StatTracking/testing.md/steps/_.3eb68380.md",
-    "context/design/concepts/StatTracking/testing.md/steps/_.331f5a1f.md",
-    "context/design/concepts/StatTracking/testing.md/steps/_.3731a859.md",
-    "context/design/concepts/StatTracking/testing.md/steps/_.04e090af.md",
-    "context/design/concepts/StatTracking/testing.md/steps/_.2c6983a8.md",
-    "context/design/concepts/StatTracking/testing.md/steps/Generic Parameters.087161ea.md",
+    "design/concepts/Rewarding/design.md",
+    "design/concepts/ArcTracking/ArcTracking.md",
+    "design/concepts/ArcTracking/testing.md",
+    "context/design/concepts/ArcTracking/testing.md/steps/response.c7d48386.md",
+    "context/design/concepts/ArcTracking/testing.md/steps/response.0c398b7d.md",
+    "context/design/concepts/ArcTracking/testing.md/steps/_.b7365ba6.md",
+    "context/design/concepts/ArcTracking/testing.md/steps/_.1f015b26.md",
+    "design/concepts/ArcTracking/implementation.md",
+    "context/design/concepts/ArcTracking/implementation.md/steps/response.0c398b7d.md",
+    "context/design/concepts/ArcTracking/implementation.md/steps/_.b7365ba6.md",
+    "context/design/concepts/ArcTracking/implementation.md/steps/file.9d0c969b.md",
+    "context/design/concepts/ArcTracking/implementation.md/steps/solution.4f0441cc.md",
+    "context/design/concepts/ArcTracking/implementation.md/steps/problem.93c86d7e.md",
+    "context/design/concepts/ArcTracking/implementation.md/steps/file.f67abcd5.md",
+    "context/design/concepts/ArcTracking/implementation.md/steps/response.6d76b65d.md",
+    "context/design/concepts/ArcTracking/implementation.md/20251023_174045.c6efbc03.md",
+    "context/design/concepts/ArcTracking/implementation.md/steps/_.ea9df37f.md",
+    "design/concepts/ArcTracking/test-output.md",
+    "context/design/concepts/ArcTracking/testing.md/steps/file.159008b3.md",
+    "context/design/concepts/ArcTracking/testing.md/steps/_.3ad44d7e.md",
+    "context/design/concepts/ArcTracking/testing.md/steps/response.a185f790.md",
+    "context/design/concepts/ArcTracking/testing.md/20251023_165003.19665df4.md",
+    "context/design/concepts/ArcTracking/testing.md/steps/prompt.8698897d.md",
+    "context/design/concepts/ArcTracking/testing.md/steps/trace.33483247.md",
+    "context/design/concepts/ArcTracking/testing.md/steps",
+    "context/design/concepts/ArcTracking/implementation.md/steps",
+    "context/design/concepts/ArcTracking",
     "context/design/concepts/StatTracking/testing.md/steps",
     "context/design/concepts/StatTracking/implementation.md/steps",
     "context/design/concepts/StatTracking",
@@ -382,9 +386,6 @@
     "src/concepts/StatTracking/StatTrackingConcept.test.ts",
     "src/concepts/StatTracking/StatTrackingConcept.ts",
     "src/concepts/Rewarding/RewardingConcept.test.ts",
-    "src/concepts/Rewarding/RewardingConcept.ts",
-    "src/concepts/Friending/FriendingConcept.ts",
-    "src/concepts/Friending/FriendingConcept.test.ts",
     "media/linking.png",
     "media/relative_linking.png",
     "media/obsidian_settings.png"
