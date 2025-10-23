@@ -6,7 +6,7 @@
       {
         "id": "0191866cebf1b7c3",
         "type": "tabs",
-        "dimension": 41.398116013882,
+        "dimension": 40.19097222222222,
         "children": [
           {
             "id": "541a7bf5f00a8a0f",
@@ -26,43 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/LikertSurvey/implementation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "222e6a722040c92d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/Friending/test-output.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2aa35c88c8189487",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/learning/Application Design.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2ce83d6801ac87e2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "context/design/brainstorming/fixing-Friending.md/steps/response.8091ec02.md",
+                "file": "design/concepts/Authentication/testing.md",
                 "mode": "source",
                 "source": false
               }
@@ -74,7 +38,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/background/concept-specifications.md",
+                "file": "design/concepts/Friending/testing.md",
                 "mode": "source",
                 "source": false
               }
@@ -141,15 +105,15 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "2e6b74435ec1deb2",
         "type": "tabs",
-        "dimension": 58.601883986118,
+        "dimension": 59.80902777777778,
         "children": [
           {
-            "id": "2c27709ad47a5061",
+            "id": "a5e53f0a4f516630",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -161,12 +125,36 @@
             }
           },
           {
+            "id": "1de978641faf62a8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/concepts/Authentication/Authentication.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2c27709ad47a5061",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design/concepts/Friending/Friending.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "0576cd24073fe638",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/brainstorming/fixing-Friending.md",
+                "file": "design/concepts/Friending/Friending.md",
                 "mode": "source",
                 "source": false
               }
@@ -178,7 +166,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/brainstorming/questioning.md",
+                "file": "design/concepts/Authentication/design.md",
                 "mode": "source",
                 "source": false
               }
@@ -190,7 +178,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/Friending/implementation.md",
+                "file": "design/concepts/Authentication/Authentication.md",
                 "mode": "source",
                 "source": false
               }
@@ -232,8 +220,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -299,7 +286,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "design/brainstorming/fixing-Friending.md",
+                "file": "design/concepts/Authentication/testing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -316,7 +303,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "design/brainstorming/fixing-Friending.md",
+                "file": "design/concepts/Authentication/testing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -339,7 +326,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "design/brainstorming/fixing-Friending.md"
+                "file": "design/concepts/Authentication/testing.md"
               }
             }
           }
@@ -360,44 +347,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0576cd24073fe638",
+  "active": "d2a032a64dfd7778",
   "lastOpenFiles": [
-    "design/concepts/Friending/test-output.md",
-    "context/design/concepts/Friending/test-output.md/steps/_.23927876.md",
-    "context/design/concepts/Friending/test-output.md/steps",
-    "context/design/concepts/Friending/test-output.md/20251023_040617.5c9108e8.md",
-    "context/design/concepts/Friending/test-output.md",
-    "design/concepts/Friending/design.md",
-    "context/design/concepts/Friending/design.md/20251023_040523.ecb7e5e2.md",
-    "context/design/concepts/Friending/design.md/steps/After modifications.8b633716.md",
-    "design/concepts/LikertSurvey/implementation.md",
-    "design/concepts/LikertSurvey/testing.md",
-    "design/brainstorming/fixing-Friending.md",
-    "design/concepts/Friending/implementation.md",
-    "context/design/concepts/Friending/implementation.md/steps/response.720078fd.md",
-    "context/design/concepts/Friending/implementation.md/20251023_030532.9635dae3.md",
-    "context/design/concepts/Friending/implementation.md/steps/prompt.24f91064.md",
-    "context/design/concepts/Friending/implementation.md/steps/response.dff0dca3.md",
-    "context/design/concepts/Friending/implementation.md/20251023_025815.e2ed9320.md",
-    "context/design/concepts/Friending/implementation.md/steps/prompt.7cc53d51.md",
-    "README.md",
-    "context/design/concepts/Friending/implementation.md/steps/response.9a11ca8a.md",
-    "context/design/concepts/Friending/implementation.md/20251023_025554.914f24d7.md",
-    "context/design/concepts/Friending/implementation.md/steps/prompt.3c59ca21.md",
-    "context/design/concepts/Friending/implementation.md/steps/response.d357686a.md",
-    "context/design/concepts/Friending/implementation.md/20251023_025455.1ff2cff4.md",
-    "context/design/concepts/Friending/implementation.md/steps/prompt.c56fd296.md",
-    "design/concepts/Friending/testing.md",
-    "context/design/concepts/Friending/testing.md/steps/response.8e1adc9d.md",
-    "context/design/concepts/Friending/testing.md/steps",
-    "src/concepts/friending/FriendingConcept.test.ts",
-    "src/concepts/friending/FriendingConcept.ts",
-    "src/concepts/friending",
-    "context/design/concepts/Friending/implementation.md/steps",
-    "context/design/concepts/Friending/design.md/steps",
-    "context/design/concepts/Friending",
-    "context/design/brainstorming/fixing-Friending.md/steps",
-    "context/design/brainstorming/original-application-idea.md/steps",
+    "design/concepts/Authentication/test-output.md",
+    "design/concepts/Authentication/implementation.md",
+    "design/concepts/Authentication/design.md",
+    "design/concepts/Authentication/testing.md",
+    "design/concepts/Authentication/Authentication.md",
+    "design/learning/Application Design.md",
+    "context/design/concepts/Authentication/testing.md/steps/trace.35025300.md",
+    "context/design/concepts/Authentication/testing.md/steps/response.12001d6f.md",
+    "context/design/concepts/Authentication/testing.md/20251023_052514.97a3a4ce.md",
+    "context/design/concepts/Authentication/testing.md/steps/test.757a007e.md",
+    "context/design/concepts/Authentication/testing.md/steps/file.8a1485f9.md",
+    "context/design/concepts/Authentication/testing.md/steps/Concept.954ee439.md",
+    "context/design/concepts/Authentication/testing.md/steps/file.7037b19f.md",
+    "context/design/concepts/Authentication/testing.md/steps/Concept.77a05bee.md",
+    "context/design/concepts/Authentication/testing.md/steps/response.2d05dee9.md",
+    "context/design/concepts/Authentication/testing.md/steps/prompt.1cb59961.md",
+    "context/design/concepts/Authentication/testing.md/steps/file.18442bca.md",
+    "context/design/concepts/Authentication/testing.md/steps/concept.d8b17fb2.md",
+    "context/design/concepts/Authentication/testing.md/steps/trace.13930d49.md",
+    "context/design/concepts/Authentication/testing.md/steps/file.562c08a2.md",
+    "context/design/concepts/Authentication/testing.md/steps/response.6d76b65d.md",
+    "context/design/concepts/Authentication/testing.md/steps/test.ba8b901b.md",
+    "context/design/concepts/Authentication/testing.md/steps/response.da97aabb.md",
+    "context/design/concepts/Authentication/testing.md/steps/response.5d2595d4.md",
+    "context/design/concepts/Authentication/testing.md/steps/prompt.9e9a2f2b.md",
+    "context/design/concepts/Authentication/testing.md/steps/implement.c75171c8.md",
+    "context/design/concepts/Authentication/testing.md/steps",
+    "src/concepts/StatTracking/StatTrackingConcept.test.ts",
+    "src/concepts/StatTracking/StatTrackingConcept.ts",
+    "src/concepts/Rewarding/RewardingConcept.test.ts",
+    "src/concepts/Rewarding/RewardingConcept.ts",
+    "src/concepts/Friending/FriendingConcept.ts",
+    "src/concepts/Friending/FriendingConcept.test.ts",
+    "src/concepts/Friending",
+    "src/concepts/Authentication/AuthenticationConcept.ts",
+    "src/concepts/Authentication/AuthenticationConcept.test.ts",
     "media/linking.png",
     "media/relative_linking.png",
     "media/obsidian_settings.png"

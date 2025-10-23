@@ -5,10 +5,9 @@ import FriendingConcept from "./FriendingConcept.ts";
 Deno.test("Friending Concept", async (t) => {
   const [db, client] = await testDb();
 
-  // Helper to create a user (assuming user IDs are strings)
+  // Helper to create a user
   const createUser = async (username: string): Promise<string> => {
-    // In a real scenario, user creation would likely be handled by a User concept.
-    // For testing Friending, we'll just use string IDs.
+    // For testing Friending, use string IDs.
     return username;
   };
 
