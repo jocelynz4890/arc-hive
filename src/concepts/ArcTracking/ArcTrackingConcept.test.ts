@@ -3,7 +3,8 @@ import { assertEquals } from "jsr:@std/assert";
 import ArcTrackingConcept from "./ArcTrackingConcept.ts";
 import { ID } from "@utils/types.ts";
 
-Deno.test("ArcTracking Concept", async (t) => {
+console.log("✅ Concept: ARC TRACKING\n Operational principle: an arc consists of a daily habit or set of tasks; progress counts only if completed, and in group arcs, progress counts only if all members complete their tasks\n");
+Deno.test("Test each component of operational principle for Arc Tracking", async (t) => {
   await t.step("should allow users to create and manage arcs", async () => {
     const [db, client] = await testDb();
     const arcTracker = new ArcTrackingConcept(db);

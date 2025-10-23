@@ -4,7 +4,8 @@ import { testDb } from "@utils/database.ts";
 import { ID } from "@utils/types.ts";
 
 
-Deno.test("Rewarding Concept - Initialization and Basic Operations", async (t) => {
+console.log("✅ Concept: REWARDING\n Operational principle: users earn avatar points by completing arcs and maintaining streaks; points are spent in a gacha system that yields avatars based on user stat distribution\n");
+Deno.test("1. Initialization and Basic Operations", async (t) => {
   const [db, client] = await testDb();
   const rewarding = new RewardingConcept(db);
 
@@ -108,7 +109,7 @@ Deno.test("Rewarding Concept - Initialization and Basic Operations", async (t) =
   await client.close();
 });
 
-Deno.test("Rewarding Concept - pickRandomAvatar", async (t) => {
+Deno.test("2. Rewarding Concept - pickRandomAvatar", async (t) => {
   const [db, client] = await testDb();
   const rewarding = new RewardingConcept(db);
 

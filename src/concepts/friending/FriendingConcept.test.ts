@@ -2,7 +2,9 @@ import { testDb } from "@utils/database.ts";
 import { assertEquals, assertThrows } from "jsr:@std/assert";
 import FriendingConcept from "./FriendingConcept.ts";
 
-Deno.test("Friending Concept", async (t) => {
+console.log("✅ Concept: FRIENDING\n Operational principle: users have automatically generated friend codes, and when another user adds their friend code, both users will be able able to see each other in their hives (friend list)\n");
+
+Deno.test("Test Friending Concept operational principle components", async (t) => {
   const [db, client] = await testDb();
 
   // Helper to create a user

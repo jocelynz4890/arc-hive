@@ -2,7 +2,9 @@ import { testDb } from "@utils/database.ts";
 import { assertEquals } from "jsr:@std/assert";
 import AuthenticationConcept from "./AuthenticationConcept.ts";
 
-Deno.test("Authentication Concept", async (t) => {
+console.log("✅ Concept: AUTHENTICATION\n Operational principle: a user is authorized to access their profile only if they provide the correct username and password set during registration\n");
+
+Deno.test("Test Authentication Concept operational principle flow", async (t) => {
   await t.step("register and authenticate a user", async () => {
     const [db, client] = await testDb();
     const auth = new AuthenticationConcept(db);

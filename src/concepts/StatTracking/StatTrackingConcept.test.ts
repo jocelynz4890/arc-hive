@@ -4,7 +4,9 @@ import StatTrackingConcept from "./StatTrackingConcept.ts";
 
 const createUser = (id: string): string => `user:${id}`;
 
-Deno.test("StatTrackingConcept - Initialize Stats", async (t) => {
+console.log("✅ Concept: STAT TRACKING\n Operational principle: each completed task from a user's arc contributes points to one stat; the number of completed tasks corresponding to a stat will be displayed in the stat's progress bar, out of the number of total tasks for that stat. This way, uncompleted tasks are visible in the stat's progress bar\n");
+
+Deno.test("1. StatTrackingConcept - Initialize Stats", async (t) => {
   const [db, client] = await testDb();
   const statTracking = new StatTrackingConcept(db);
 
@@ -39,7 +41,7 @@ Deno.test("StatTrackingConcept - Initialize Stats", async (t) => {
   await client.close();
 });
 
-Deno.test("StatTrackingConcept - Get Stats", async (t) => {
+Deno.test("2. StatTrackingConcept - Get Stats", async (t) => {
   const [db, client] = await testDb();
   const statTracking = new StatTrackingConcept(db);
 
@@ -69,7 +71,7 @@ Deno.test("StatTrackingConcept - Get Stats", async (t) => {
   await client.close();
 });
 
-Deno.test("StatTrackingConcept - Update Stats", async (t) => {
+Deno.test("3. StatTrackingConcept - Update Stats", async (t) => {
   const [db, client] = await testDb();
   const statTracking = new StatTrackingConcept(db);
 
