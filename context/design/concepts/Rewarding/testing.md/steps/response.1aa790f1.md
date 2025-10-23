@@ -1,10 +1,8 @@
-[@testing-concepts](../../background/testing-concepts.md)
-
-[@Rewarding](Rewarding.md)
-
-[@implementation](implementation.md)
-
-# test: Rewarding
+---
+timestamp: 'Thu Oct 23 2025 18:46:54 GMT-0400 (Eastern Daylight Time)'
+parent: '[[../20251023_184654.e40387da.md]]'
+content_id: 1aa790f12ebe47d4c1c2410de3eeb6e86ed379532303501ab117584cac49b60f
+---
 
 # response:
 

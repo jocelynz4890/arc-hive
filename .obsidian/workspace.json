@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/ArcTracking/implementation.md",
+                "file": "design/concepts/Rewarding/implementation.md",
                 "mode": "source",
                 "source": false
               }
@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/ArcTracking/testing.md",
+                "file": "design/concepts/Rewarding/testing.md",
                 "mode": "source",
                 "source": false
               }
@@ -104,8 +104,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "2e6b74435ec1deb2",
@@ -118,7 +117,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/ArcTracking/ArcTracking.md",
+                "file": "design/concepts/Rewarding/Rewarding.md",
                 "mode": "source",
                 "source": false
               }
@@ -130,7 +129,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/learning/Application Design.md",
+                "file": "design/concepts/Rewarding/implementation.md",
                 "mode": "source",
                 "source": false
               }
@@ -142,7 +141,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/ArcTracking/ArcTracking.md",
+                "file": "design/concepts/Rewarding/testing.md",
                 "mode": "source",
                 "source": false
               }
@@ -154,7 +153,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/ArcTracking/design.md",
+                "file": "design/concepts/Rewarding/design.md",
                 "mode": "source",
                 "source": false
               }
@@ -287,7 +286,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "design/concepts/ArcTracking/ArcTracking.md",
+                "file": "design/concepts/Rewarding/testing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -304,7 +303,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "design/concepts/ArcTracking/ArcTracking.md",
+                "file": "design/concepts/Rewarding/testing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -327,7 +326,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "design/concepts/ArcTracking/ArcTracking.md"
+                "file": "design/concepts/Rewarding/testing.md"
               }
             }
           }
@@ -350,32 +349,35 @@
   },
   "active": "2c27709ad47a5061",
   "lastOpenFiles": [
-    "design/concepts/ArcTracking/design.md",
-    "design/concepts/Authentication/design.md",
+    "context/design/concepts/Rewarding/testing.md/steps/response.1aa790f1.md",
+    "context/design/concepts/Rewarding/testing.md/steps/test.36c9aecd.md",
+    "context/design/concepts/Rewarding/testing.md/steps/response.180391dc.md",
+    "context/design/concepts/Rewarding/testing.md/steps/implement.7de9d862.md",
+    "context/design/concepts/Rewarding/testing.md/steps/file.0191b15f.md",
+    "context/design/concepts/Rewarding/testing.md/steps/concept.ab15307b.md",
+    "context/design/concepts/Rewarding/testing.md/steps/approach.5df2171f.md",
+    "context/design/concepts/Rewarding/testing.md/steps/approach.3e0d5a8f.md",
+    "context/design/concepts/Rewarding/testing.md/steps/_.e94ed6ad.md",
+    "context/design/concepts/Rewarding/testing.md/steps/_.db39d951.md",
+    "context/design/concepts/Rewarding/testing.md/steps/_.b0364a7a.md",
+    "context/design/concepts/Rewarding/testing.md/steps/_.ae61325b.md",
+    "context/design/concepts/Rewarding/testing.md/steps/_.aa30c833.md",
+    "context/design/concepts/Rewarding/testing.md/steps/_.3eb68380.md",
+    "context/design/concepts/Rewarding/testing.md/steps/_.3731a859.md",
+    "context/design/concepts/Rewarding/testing.md/steps/_.331f5a1f.md",
+    "context/design/concepts/Rewarding/testing.md/steps/_.04e090af.md",
+    "context/design/concepts/Rewarding/testing.md/steps/Generic Parameters.087161ea.md",
+    "context/design/concepts/Rewarding/testing.md/steps",
+    "context/design/concepts/Rewarding/testing.md/20251023_184642.f342b908.md",
+    "context/design/concepts/Rewarding/testing.md",
+    "design/concepts/Rewarding/implementation.md",
     "design/concepts/Rewarding/design.md",
-    "design/concepts/ArcTracking/ArcTracking.md",
-    "design/concepts/ArcTracking/testing.md",
-    "context/design/concepts/ArcTracking/testing.md/steps/response.c7d48386.md",
-    "context/design/concepts/ArcTracking/testing.md/steps/response.0c398b7d.md",
-    "context/design/concepts/ArcTracking/testing.md/steps/_.b7365ba6.md",
-    "context/design/concepts/ArcTracking/testing.md/steps/_.1f015b26.md",
-    "design/concepts/ArcTracking/implementation.md",
-    "context/design/concepts/ArcTracking/implementation.md/steps/response.0c398b7d.md",
-    "context/design/concepts/ArcTracking/implementation.md/steps/_.b7365ba6.md",
-    "context/design/concepts/ArcTracking/implementation.md/steps/file.9d0c969b.md",
-    "context/design/concepts/ArcTracking/implementation.md/steps/solution.4f0441cc.md",
-    "context/design/concepts/ArcTracking/implementation.md/steps/problem.93c86d7e.md",
-    "context/design/concepts/ArcTracking/implementation.md/steps/file.f67abcd5.md",
-    "context/design/concepts/ArcTracking/implementation.md/steps/response.6d76b65d.md",
-    "context/design/concepts/ArcTracking/implementation.md/20251023_174045.c6efbc03.md",
-    "context/design/concepts/ArcTracking/implementation.md/steps/_.ea9df37f.md",
-    "design/concepts/ArcTracking/test-output.md",
-    "context/design/concepts/ArcTracking/testing.md/steps/file.159008b3.md",
-    "context/design/concepts/ArcTracking/testing.md/steps/_.3ad44d7e.md",
-    "context/design/concepts/ArcTracking/testing.md/steps/response.a185f790.md",
-    "context/design/concepts/ArcTracking/testing.md/20251023_165003.19665df4.md",
-    "context/design/concepts/ArcTracking/testing.md/steps/prompt.8698897d.md",
-    "context/design/concepts/ArcTracking/testing.md/steps/trace.33483247.md",
+    "design/concepts/Rewarding/Rewarding.md",
+    "context/design/concepts/Rewarding/implementation.md/steps/file.0191b15f.md",
+    "context/design/concepts/Rewarding/implementation.md/steps/concept.ab15307b.md",
+    "context/design/concepts/Rewarding/implementation.md/steps/response.180391dc.md",
+    "context/design/concepts/Rewarding/implementation.md/steps",
+    "context/design/concepts/Rewarding",
     "context/design/concepts/ArcTracking/testing.md/steps",
     "context/design/concepts/ArcTracking/implementation.md/steps",
     "context/design/concepts/ArcTracking",
@@ -383,9 +385,6 @@
     "context/design/concepts/StatTracking/implementation.md/steps",
     "context/design/concepts/StatTracking",
     "context/design/concepts/Authentication/testing.md/steps",
-    "src/concepts/StatTracking/StatTrackingConcept.test.ts",
-    "src/concepts/StatTracking/StatTrackingConcept.ts",
-    "src/concepts/Rewarding/RewardingConcept.test.ts",
     "media/linking.png",
     "media/relative_linking.png",
     "media/obsidian_settings.png"
