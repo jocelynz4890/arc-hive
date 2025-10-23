@@ -6,7 +6,7 @@
       {
         "id": "0191866cebf1b7c3",
         "type": "tabs",
-        "dimension": 40.19097222222222,
+        "dimension": 49.47916666666667,
         "children": [
           {
             "id": "541a7bf5f00a8a0f",
@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/learning/Application Design.md",
+                "file": "design/concepts/ArcTracking/ArcTracking.md",
                 "mode": "source",
                 "source": false
               }
@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/Authentication/testing.md",
+                "file": "design/concepts/ArcTracking/ArcTracking.md",
                 "mode": "source",
                 "source": false
               }
@@ -38,7 +38,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/Friending/testing.md",
+                "file": "design/concepts/Authentication/testing.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
       {
         "id": "2e6b74435ec1deb2",
         "type": "tabs",
-        "dimension": 59.80902777777778,
+        "dimension": 50.520833333333336,
         "children": [
           {
             "id": "a5e53f0a4f516630",
@@ -286,7 +286,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "design/concepts/Authentication/testing.md",
+                "file": "design/concepts/ArcTracking/ArcTracking.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -303,7 +303,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "design/concepts/Authentication/testing.md",
+                "file": "design/concepts/ArcTracking/ArcTracking.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -326,7 +326,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "design/concepts/Authentication/testing.md"
+                "file": "design/concepts/ArcTracking/ArcTracking.md"
               }
             }
           }
@@ -349,32 +349,35 @@
   },
   "active": "d2a032a64dfd7778",
   "lastOpenFiles": [
+    "design/concepts/StatTracking/test-output.md",
     "design/concepts/Authentication/test-output.md",
-    "design/concepts/Authentication/implementation.md",
+    "design/concepts/StatTracking/StatTracking.md",
+    "design/concepts/StatTracking/implementation.md",
     "design/concepts/Authentication/design.md",
-    "design/concepts/Authentication/testing.md",
     "design/concepts/Authentication/Authentication.md",
-    "design/learning/Application Design.md",
-    "context/design/concepts/Authentication/testing.md/steps/trace.35025300.md",
-    "context/design/concepts/Authentication/testing.md/steps/response.12001d6f.md",
-    "context/design/concepts/Authentication/testing.md/20251023_052514.97a3a4ce.md",
-    "context/design/concepts/Authentication/testing.md/steps/test.757a007e.md",
-    "context/design/concepts/Authentication/testing.md/steps/file.8a1485f9.md",
-    "context/design/concepts/Authentication/testing.md/steps/Concept.954ee439.md",
-    "context/design/concepts/Authentication/testing.md/steps/file.7037b19f.md",
-    "context/design/concepts/Authentication/testing.md/steps/Concept.77a05bee.md",
-    "context/design/concepts/Authentication/testing.md/steps/response.2d05dee9.md",
-    "context/design/concepts/Authentication/testing.md/steps/prompt.1cb59961.md",
-    "context/design/concepts/Authentication/testing.md/steps/file.18442bca.md",
-    "context/design/concepts/Authentication/testing.md/steps/concept.d8b17fb2.md",
-    "context/design/concepts/Authentication/testing.md/steps/trace.13930d49.md",
-    "context/design/concepts/Authentication/testing.md/steps/file.562c08a2.md",
-    "context/design/concepts/Authentication/testing.md/steps/response.6d76b65d.md",
-    "context/design/concepts/Authentication/testing.md/steps/test.ba8b901b.md",
-    "context/design/concepts/Authentication/testing.md/steps/response.da97aabb.md",
-    "context/design/concepts/Authentication/testing.md/steps/response.5d2595d4.md",
-    "context/design/concepts/Authentication/testing.md/steps/prompt.9e9a2f2b.md",
-    "context/design/concepts/Authentication/testing.md/steps/implement.c75171c8.md",
+    "design/concepts/StatTracking/testing.md",
+    "design/concepts/Authentication/testing.md",
+    "context/design/concepts/StatTracking/testing.md/steps/response.32b50a1d.md",
+    "context/design/concepts/StatTracking/testing.md/steps/test.e58ed568.md",
+    "context/design/concepts/StatTracking/testing.md/steps/response.e1c3585e.md",
+    "context/design/concepts/StatTracking/testing.md/steps/response.c57f3899.md",
+    "context/design/concepts/StatTracking/testing.md/steps/prompt.11b97506.md",
+    "context/design/concepts/StatTracking/testing.md/steps/implement.5d9d1c86.md",
+    "context/design/concepts/StatTracking/testing.md/steps/approach.5df2171f.md",
+    "context/design/concepts/StatTracking/testing.md/steps/approach.3e0d5a8f.md",
+    "context/design/concepts/StatTracking/testing.md/steps/_.db39d951.md",
+    "context/design/concepts/StatTracking/testing.md/steps/_.b0364a7a.md",
+    "context/design/concepts/StatTracking/testing.md/steps/_.ae61325b.md",
+    "context/design/concepts/StatTracking/testing.md/steps/_.903f9d68.md",
+    "context/design/concepts/StatTracking/testing.md/steps/_.3eb68380.md",
+    "context/design/concepts/StatTracking/testing.md/steps/_.331f5a1f.md",
+    "context/design/concepts/StatTracking/testing.md/steps/_.3731a859.md",
+    "context/design/concepts/StatTracking/testing.md/steps/_.04e090af.md",
+    "context/design/concepts/StatTracking/testing.md/steps/_.2c6983a8.md",
+    "context/design/concepts/StatTracking/testing.md/steps/Generic Parameters.087161ea.md",
+    "context/design/concepts/StatTracking/testing.md/steps",
+    "context/design/concepts/StatTracking/implementation.md/steps",
+    "context/design/concepts/StatTracking",
     "context/design/concepts/Authentication/testing.md/steps",
     "src/concepts/StatTracking/StatTrackingConcept.test.ts",
     "src/concepts/StatTracking/StatTrackingConcept.ts",
@@ -382,9 +385,6 @@
     "src/concepts/Rewarding/RewardingConcept.ts",
     "src/concepts/Friending/FriendingConcept.ts",
     "src/concepts/Friending/FriendingConcept.test.ts",
-    "src/concepts/Friending",
-    "src/concepts/Authentication/AuthenticationConcept.ts",
-    "src/concepts/Authentication/AuthenticationConcept.test.ts",
     "media/linking.png",
     "media/relative_linking.png",
     "media/obsidian_settings.png"

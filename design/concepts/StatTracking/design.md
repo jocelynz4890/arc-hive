@@ -1,0 +1,1 @@
+I fixed the state syntax to use nested sets instead of "pairs", which I originally used as a placeholder because I was unsure about the proper syntax.

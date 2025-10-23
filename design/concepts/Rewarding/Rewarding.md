@@ -1,8 +1,11 @@
 
 ```
 concept Rewarding
+
     purpose motivate users by granting rewards (avatars) for consistent habit completion and progress
+    
     principle users earn avatar points by completing arcs and maintaining streaks; points are spent in a gacha system that yields avatars based on user stat distribution
+    
     state
         a set of Rewards with
             a User User
@@ -13,6 +16,7 @@ concept Rewarding
             a Name String
             a Rarity {common, rare, epic, legendary}
             a StatAffinity Map<Stat, Number>
+    
     actions
         initializeRewards (user: User)
             requires user exists

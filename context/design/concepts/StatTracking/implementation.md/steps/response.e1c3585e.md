@@ -1,5 +1,14 @@
+---
+timestamp: 'Thu Oct 23 2025 06:02:06 GMT-0400 (Eastern Daylight Time)'
+parent: '[[../20251023_060206.4ab06e9b.md]]'
+content_id: e1c3585ec35bed1aa7e88815d3f8bcbe8166cff4af80a6b915ea909f7c44a09f
+---
+
+# response:
+
+```typescript
 import { Collection, Db } from "npm:mongodb";
-import { freshID } from "@utils/database.ts"; // For generating MongoDB _ids
+import { Empty, ID } from "@utils/types.ts";
 
 // Define constants for stat names for clarity and maintainability
 const HP = "HP";
@@ -13,23 +22,21 @@ const VALID_STATS = [HP, STAMINA, STRENGTH, AGILITY, INTELLIGENCE];
 const PREFIX = "StatTracking" + ".";
 
 // Generic types of this concept
-type User = string;
+type User = ID;
 
 /**
  * Represents the numerical progress within a stat.
  */
 interface StatProgress {
-  completed: number; // Changed to number for clarity, assuming backend uses JS numbers
-  incompleted: number; // Changed to number for clarity
+  completed: Number;
+  incompleted: Number;
 }
 
 /**
  * Represents the state for a specific user's stats.
- * The _id will be a MongoDB ObjectId but treated as string externally for User.
  */
 interface Stats {
-  _id: string; // MongoDB ObjectId type for internal storage
-  user: User; // Explicitly store the user string ID
+  _id: User; // User ID as the document identifier
   hp: StatProgress;
   stamina: StatProgress;
   strength: StatProgress;
@@ -46,10 +53,10 @@ export default class StatTrackingConcept {
 
   /**
    * Updates a user's stat by increasing its completed task count.
-   * @param user The string ID of the user.
+   * @param user The ID of the user.
    * @param stat The name of the stat to update. Must be one of HP, Stamina, Strength, Agility, Intelligence.
    * @param delta The amount to increase the completed task count by.
-   * @returns The updated stats for the user, or an error object if something goes wrong.
+   * @returns The updated stats for the user.
    */
   async updateStatWithCompletedTask({
     user,
@@ -57,33 +64,36 @@ export default class StatTrackingConcept {
     delta,
   }: {
     user: User;
-    stat: string;
-    delta: number;
-  }): Promise<Stats | { error: string }> {
-    if (!VALID_STATS.includes(stat)) {
+    stat: String;
+    delta: Number;
+  }): Promise<Partial<Stats>> {
+    if (!VALID_STATS.includes(stat as string)) {
       return { error: `Invalid stat name: ${stat}. Must be one of ${VALID_STATS.join(", ")}.` };
     }
 
-    // Dynamically construct the field path for MongoDB update
-    const statFieldPath = `${stat.toLowerCase()}.completed`;
-
     const result = await this.statsCollection.findOneAndUpdate(
-      { user },
-      { $inc: { [statFieldPath]: delta } },
+      { _id: user },
+      {
+        $inc: {
+          [`${stat.toLowerCase()}.completed`]: delta as number,
+        },
+      },
       { returnDocument: "after" }
     );
 
-    if (!result) return { error: `User with ID ${user} not found. Please initialize stats first.` };
-    return result; 
+    if (!result) {
+      return { error: `User with ID ${user} not found.` };
+    }
 
+    return result;
   }
 
   /**
    * Updates a user's stat by increasing its incompleted task count.
-   * @param user The string ID of the user.
+   * @param user The ID of the user.
    * @param stat The name of the stat to update. Must be one of HP, Stamina, Strength, Agility, Intelligence.
    * @param delta The amount to increase the incompleted task count by.
-   * @returns The updated stats for the user, or an error object if something goes wrong.
+   * @returns The updated stats for the user.
    */
   async updateStatWithIncompleteTask({
     user,
@@ -91,32 +101,37 @@ export default class StatTrackingConcept {
     delta,
   }: {
     user: User;
-    stat: string;
-    delta: number;
-  }): Promise<Stats | { error: string }> {
-    if (!VALID_STATS.includes(stat)) {
+    stat: String;
+    delta: Number;
+  }): Promise<Partial<Stats>> {
+    if (!VALID_STATS.includes(stat as string)) {
       return { error: `Invalid stat name: ${stat}. Must be one of ${VALID_STATS.join(", ")}.` };
     }
 
-    const statFieldPath = `${stat.toLowerCase()}.incompleted`;
-
     const result = await this.statsCollection.findOneAndUpdate(
-      { user },
-      { $inc: { [statFieldPath]: delta } },
+      { _id: user },
+      {
+        $inc: {
+          [`${stat.toLowerCase()}.incompleted`]: delta as number,
+        },
+      },
       { returnDocument: "after" }
     );
 
-    if (!result) return { error: `User with ID ${user} not found. Please initialize stats first.` };
-    return result; 
+    if (!result) {
+      return { error: `User with ID ${user} not found.` };
+    }
+
+    return result;
   }
 
   /**
    * Retrieves the current stat values for a given user.
-   * @param user The string ID of the user.
-   * @returns The stats for the user, or an error object if the user is not found.
+   * @param user The ID of the user.
+   * @returns The stats for the user, or an error if the user is not found.
    */
-  async getStats({ user }: { user: User }): Promise<Stats | { error: string }> {
-    const stats = await this.statsCollection.findOne({ user });
+  async getStats({ user }: { user: User }): Promise<Partial<Stats>> {
+    const stats = await this.statsCollection.findOne({ _id: user });
     if (!stats) {
       return { error: `User with ID ${user} not found.` };
     }
@@ -125,12 +140,12 @@ export default class StatTrackingConcept {
 
   /**
    * Initializes stats for a new user with all counts set to 0.
-   * @param user The string ID of the user to initialize stats for.
+   * @param user The ID of the user to initialize stats for.
    * @returns The newly created stats object for the user.
    */
   async initializeStats({ user }: { user: User }): Promise<Stats> {
-    const initialStats: Omit<Stats, "_id"> = {
-      user,
+    const initialStats: Stats = {
+      _id: user,
       hp: { completed: 0, incompleted: 0 },
       stamina: { completed: 0, incompleted: 0 },
       strength: { completed: 0, incompleted: 0 },
@@ -138,18 +153,16 @@ export default class StatTrackingConcept {
       intelligence: { completed: 0, incompleted: 0 },
     };
 
-    const result = await this.statsCollection.updateOne(
-      { user },
-      {
-        $setOnInsert: { _id: freshID() }, // only set _id if inserting
-        $set: initialStats,               // set the rest of the fields
-      },
+    // We assume initializeStats might be called multiple times,
+    // so we use upsert to create if it doesn't exist or update if it does.
+    // For a strict "initialization" that only works once, you'd check existence first.
+    await this.statsCollection.updateOne(
+      { _id: user },
+      { $set: initialStats },
       { upsert: true }
     );
 
-    // Retrieve the stats after upsert
-    const stats = await this.statsCollection.findOne({ user });
-    return stats!;
+    return initialStats;
   }
-
 }
+```

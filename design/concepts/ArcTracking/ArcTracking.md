@@ -1,8 +1,11 @@
 
 ```
 concept ArcTracking
+    
     purpose allow users to create and manage arcs (habit trackers) either individually or with any number of peers
+    
     principle an arc consists of a daily habit or set of tasks; progress counts only if completed, and in group arcs, progress counts only if all members complete their tasks
+    
     state
         a set of Arcs with
             a Name String
@@ -10,9 +13,10 @@ concept ArcTracking
             a Members Set of Users
             a Streak Number
             a Progress Map<User, Boolean>
+    
     actions
         createArc (name: String, members: Set of Users): (arc: Arc)
-            requires all users in members have less than 10 arcs that they are a member of
+            requires true
             effect creates a new arc with given name and stat, and adds the current user and members to Members and to the progress map with initial progress set to false and initial streak set to 0; members may be empty
 
         addMemberToArc (user: User, arc: Arc)
