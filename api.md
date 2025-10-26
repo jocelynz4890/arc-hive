@@ -1,107 +1,3 @@
-[@concept-specifications](../background/concept-specifications.md)
-
-[@StatTracking](../concepts/StatTracking/StatTracking.md)
-
-[@Rewarding](../concepts/Rewarding/Rewarding.md)
-
-[@Friending](../concepts/Friending/Friending.md)
-
-[@Authentication](../concepts/Authentication/Authentication.md)
-
-[@ArcTracking](../concepts/ArcTracking/ArcTracking.md)
-# Concept API extraction
-
-You are an expert software architect tasked with generating clear, developer-friendly API documentation. Your input is a formal "Concept Specification" which describes a modular piece of software functionality. This concept has been implemented and exposed as a REST-like API by a "Concept Server."
-
-Your mission is to translate the provided Concept Specification into a structured API specification document written in Markdown. This document will be used by frontend developers to interact with the API.
-
-Adhere to the following rules for the API structure and the documentation format:
-
-**API Structure Rules:**
-
-1.  **Base URL:** Assume a base URL of `/api`.
-2.  **Endpoint Naming:** Each concept action or query maps to an endpoint. The URL structure is: `/{conceptName}/{actionOrQueryName}`.
-    *   For a concept named `Labeling` and an action `createLabel`, the endpoint is `/api/Labeling/createLabel`.
-3.  **HTTP Method:** All endpoints use the `POST` method.
-4.  **Data Format:** All requests and responses use the `application/json` content type.
-5.  **Request Body:** The request body is always a single JSON object. The keys of this object correspond to the input arguments defined in the action's signature.
-6.  **Response Body:**
-    *   **Actions:** A successful call to an action returns a single JSON object. The keys correspond to the results defined in the action's signature. If there are no results, an empty object `{}` is returned.
-    *   **Queries:** A successful call to a query (a method name starting with `_`) returns a JSON **array** of objects.
-    *   **Errors:** If an action fails to meet its `requires` condition or encounters another error, it returns a single JSON object with a single key: `{ "error": "A descriptive error message." }`.
-
-**Documentation Format Rules:**
-
-Generate the output in Markdown using the following template. For each action and query in the specification, create a dedicated endpoint section.
-
-~~~markdown
-# API Specification: {Concept Name} Concept
-
-**Purpose:** {The concept's purpose.}
-
----
-
-## API Endpoints
-
-### POST /api/{conceptName}/{actionName}
-
-**Description:** {A brief, one-sentence description of what this action does.}
-
-**Requirements:**
-- {List each point from the 'requires' section of the specification.}
-
-**Effects:**
-- {List each point from the 'effects' section of the specification.}
-
-**Request Body:**
-```json
-{
-  "argument1": "{type}",
-  "argument2": "{type}"
-}
-```
-
-**Success Response Body (Action):**
-```json
-{
-  "result1": "{type}",
-  "result2": "{type}"
-}
-```
-
-**Success Response Body (Query):**
-```json
-[
-  {
-    "result1": "{type}",
-    "result2": "{type}"
-  }
-]
-```
-
-**Error Response Body:**
-```json
-{
-  "error": "string"
-}
-```
----
-*(Repeat for each action and query)*
-~~~
-
-# prompt:
-
-Now, analyze the following Concept Specification and generate the API documentation based on these instructions.
-
-
-# response:
-
-# API Specification: StatTracking Concept
-
-**Purpose:** represent a user’s personal growth as video game–like stats
-
----
-
 ## API Endpoints
 
 ### POST /api/StatTracking/updateStatWithCompletedTask
@@ -109,13 +5,16 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Increases a user’s stat's CompletedNumber by a delta for a given stat.
 
 **Requirements:**
+
 - User exists.
 - Stat is one of {HP, Stamina, Strength, Agility, Intelligence}.
 
 **Effects:**
+
 - Increases user’s stat's CompletedNumber by delta.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}",
@@ -125,6 +24,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "updatedStats": "{Stats}"
@@ -132,11 +32,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/StatTracking/updateStatWithIncompleteTask
@@ -144,13 +46,16 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Increases a user’s stat's IncompletedNumber by a delta for a given stat.
 
 **Requirements:**
+
 - User exists.
 - Stat is one of {HP, Stamina, Strength, Agility, Intelligence}.
 
 **Effects:**
+
 - Increases user’s stat's IncompletedNumber by delta.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}",
@@ -160,6 +65,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "updatedStats": "{Stats}"
@@ -167,11 +73,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/StatTracking/getStats
@@ -179,12 +87,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Returns the current stat values for the user.
 
 **Requirements:**
+
 - User exists.
 
 **Effects:**
+
 - Returns the current stat values for the user.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}"
@@ -192,6 +103,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "stats": "{Stats}"
@@ -199,11 +111,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/StatTracking/initializeStats
@@ -211,12 +125,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Assigns a user to a new set of Stats with all numbers initialized to 0.
 
 **Requirements:**
+
 - User exists.
 
 **Effects:**
+
 - Assigns user to a new set of Stats and returns stats with all numbers initialized to 0.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}"
@@ -224,6 +141,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "stats": "{Stats}"
@@ -231,12 +149,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
+
 # API Specification: Rewarding Concept
 
 **Purpose:** motivate users by granting rewards (avatars) for consistent habit completion and progress
@@ -250,12 +171,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Initializes rewards for a user with points set to 0 and no avatars.
 
 **Requirements:**
+
 - User exists.
 
 **Effects:**
+
 - Add user to Rewards with Points initialized to 0 and with no avatars.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}"
@@ -263,16 +187,19 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {}
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/Rewarding/earnPoints
@@ -280,13 +207,16 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Increases a user’s point balance.
 
 **Requirements:**
+
 - User exists.
 - Points is positive.
 
 **Effects:**
+
 - Increases user’s point balance.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}",
@@ -295,16 +225,19 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {}
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/Rewarding/listAvatars
@@ -312,12 +245,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Returns all avatars owned by a user.
 
 **Requirements:**
+
 - User exists.
 
 **Effects:**
+
 - Returns all avatars owned by user.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}"
@@ -325,6 +261,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 [
   {
@@ -341,11 +278,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/Rewarding/getRarity
@@ -353,12 +292,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Returns the percentage chance associated with getting a rarity.
 
 **Requirements:**
+
 - Rarity is one of {common, rare, epic, legendary}.
 
 **Effects:**
+
 - Returns the percentage chance associated with getting that rarity, where common is 65%, rare is 25%, epic is 9.5%, and legendary is 0.5%.
 
 **Request Body:**
+
 ```json
 {
   "rarity": "string"
@@ -366,6 +308,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "chance": "number"
@@ -373,11 +316,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/Rewarding/pickRandomAvatar
@@ -385,12 +330,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Picks a random avatar from a given set of available avatars, weighted by rarity.
 
 **Requirements:**
+
 - True.
 
 **Effects:**
+
 - Picks a random avatar from availableAvatars weighted by rarity.
 
 **Request Body:**
+
 ```json
 {
   "availableAvatars": [
@@ -409,6 +357,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "avatar": {
@@ -425,12 +374,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
+
 # API Specification: Friending Concept
 
 **Purpose:** allow users to easily access each others profiles for mutual accountability
@@ -444,13 +396,16 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Randomly generates a unique friend code and assigns it to the user.
 
 **Requirements:**
+
 - User exists.
 - User does not already have an assigned FriendCode.
 
 **Effects:**
+
 - Randomly generates a unique friend code and assigns it to the user, and returns the friend code.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}"
@@ -458,6 +413,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "friendCode": "string"
@@ -465,11 +421,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/Friending/addFriend
@@ -477,13 +435,16 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Creates a mutual friendship between two users.
 
 **Requirements:**
+
 - `from` is not equal to `to`.
 - No existing friendship between `from` and `to`.
 
 **Effects:**
+
 - Creates a mutual friendship.
 
 **Request Body:**
+
 ```json
 {
   "from": "{User}",
@@ -492,16 +453,19 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {}
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/Friending/removeFriend
@@ -509,12 +473,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Removes a mutual friendship between two users.
 
 **Requirements:**
+
 - Existing friendship between `from` and `to`.
 
 **Effects:**
+
 - Removes a mutual friendship.
 
 **Request Body:**
+
 ```json
 {
   "from": "{User}",
@@ -523,16 +490,19 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {}
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/Friending/listFriends
@@ -540,12 +510,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Returns all users in a Friendship pair with the given user.
 
 **Requirements:**
+
 - User exists.
 
 **Effects:**
+
 - Returns all users in a Friendship pair with that user.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}"
@@ -553,18 +526,19 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
-[
-  "{User}"
-]
+["{User}"]
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/Friending/getUserByFriendCode
@@ -572,12 +546,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Returns the user associated with a given friend code.
 
 **Requirements:**
+
 - FriendCode exists.
 
 **Effects:**
+
 - Returns user associated with friendCode.
 
 **Request Body:**
+
 ```json
 {
   "friendCode": "string"
@@ -585,6 +562,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "user": "{User}"
@@ -592,11 +570,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/Friending/areFriends
@@ -604,12 +584,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Returns whether two users are friends.
 
 **Requirements:**
+
 - Both users exist.
 
 **Effects:**
+
 - Returns true if the users are friends, false otherwise.
 
 **Request Body:**
+
 ```json
 {
   "userA": "{User}",
@@ -618,6 +601,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "areFriends": "boolean"
@@ -625,11 +609,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/Friending/getFriendCodeByUsername
@@ -637,12 +623,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Returns the friend code associated with a given username.
 
 **Requirements:**
+
 - Username exists.
 
 **Effects:**
+
 - Returns friend code associated with username.
 
 **Request Body:**
+
 ```json
 {
   "username": "string"
@@ -650,6 +639,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "friendcode": "string"
@@ -657,12 +647,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
+
 # API Specification: Authentication Concept
 
 **Purpose:** authenticate users so that each user of the app is a real person
@@ -676,12 +669,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Creates and stores a new User with the given username and hashed password.
 
 **Requirements:**
+
 - No user exists with the given username.
 
 **Effects:**
+
 - Creates and stores a new User with the given username and hashed password, returns the new user.
 
 **Request Body:**
+
 ```json
 {
   "username": "string",
@@ -690,6 +686,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "user": "{User}"
@@ -697,11 +694,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/Authentication/authenticate
@@ -709,12 +708,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Returns the user if the provided password matches the stored hashed password for the given username, otherwise fails.
 
 **Requirements:**
+
 - A user exists with the given username.
 
 **Effects:**
+
 - Returns the user if hashing the password matches the stored hashed password of the user, otherwise fails.
 
 **Request Body:**
+
 ```json
 {
   "username": "string",
@@ -723,6 +725,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "user": "{User}"
@@ -730,12 +733,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
+
 # API Specification: ArcTracking Concept
 
 **Purpose:** allow users to create and manage arcs (habit trackers) either individually or with any number of peers
@@ -749,23 +755,25 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Creates a new arc with a given name and stat, and adds members to Members and to the progress map with initial progress set to false and initial streak set to 0.
 
 **Requirements:**
+
 - True.
 
 **Effects:**
+
 - Creates a new arc with given name and stat, and adds the members to Members and to the progress map with initial progress set to false and initial streak set to 0; members may be empty.
 
 **Request Body:**
+
 ```json
 {
   "name": "string",
   "stat": "string",
-  "members": [
-    "{User}"
-  ]
+  "members": ["{User}"]
 }
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "arc": "{Arc}"
@@ -773,11 +781,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/ArcTracking/addMemberToArc
@@ -785,13 +795,16 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Adds a user to an arc's Members and progress map with initial progress set to false.
 
 **Requirements:**
+
 - User exists.
 - Arc exists.
 
 **Effects:**
+
 - Adds user to arc’s Members and progress map with initial progress set to false.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}",
@@ -800,16 +813,19 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {}
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/ArcTracking/markProgress
@@ -817,12 +833,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Sets a user's progress for the day to true.
 
 **Requirements:**
+
 - User is a member of the arc.
 
 **Effects:**
+
 - Sets user’s progress for the day to true.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}",
@@ -831,6 +850,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "progress": {
@@ -841,11 +861,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/ArcTracking/markNoProgress
@@ -853,12 +875,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Sets a user's progress for the day to false.
 
 **Requirements:**
+
 - User is a member of the arc.
 
 **Effects:**
+
 - Sets user's progress for the day to false.
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}",
@@ -867,6 +892,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "progress": {
@@ -877,11 +903,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/ArcTracking/getArcStatus
@@ -889,12 +917,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Returns the current progress status of all members for an arc.
 
 **Requirements:**
+
 - Arc exists.
 
 **Effects:**
+
 - Returns current progress status of all members.
 
 **Request Body:**
+
 ```json
 {
   "arc": "{Arc}"
@@ -902,6 +933,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "status": {
@@ -912,11 +944,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/ArcTracking/updateArcStreak
@@ -924,12 +958,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Updates the arc's streak. If any member has not made progress, the streak resets to 0. Otherwise, it is incremented by 1. Daily progress is then reset to false for all users.
 
 **Requirements:**
+
 - Arc exists.
 
 **Effects:**
+
 - Gets the progress map of the arc, and if any member has not made progress, the streak resets to 0, otherwise it is incremented by 1, then daily progress is reset to false for all users to indicate a new day.
 
 **Request Body:**
+
 ```json
 {
   "arc": "{Arc}"
@@ -937,6 +974,7 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 {
   "newStreak": "number"
@@ -944,11 +982,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---
 
 ### POST /api/ArcTracking/getArcs
@@ -956,12 +996,15 @@ Now, analyze the following Concept Specification and generate the API documentat
 **Description:** Returns all arcs that the user is a member of, in order of decreasing streak counts and secondarily by creation order (newest first).
 
 **Requirements:**
+
 - User exists.
 
 **Effects:**
+
 - Returns all arcs that the user is a member of, in order of decreasing streak counts and secondarily by creation order (newest first).
 
 **Request Body:**
+
 ```json
 {
   "user": "{User}"
@@ -969,14 +1012,13 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Success Response Body (Action):**
+
 ```json
 [
   {
     "name": "string",
     "stat": "string",
-    "members": [
-      "{User}"
-    ],
+    "members": ["{User}"],
     "streak": "number",
     "progress": {
       "user": "{User}",
@@ -987,9 +1029,11 @@ Now, analyze the following Concept Specification and generate the API documentat
 ```
 
 **Error Response Body:**
+
 ```json
 {
   "error": "string"
 }
 ```
+
 ---

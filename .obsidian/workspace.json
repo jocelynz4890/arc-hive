@@ -4,223 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "0191866cebf1b7c3",
+        "id": "e4fea05c7eab35b6",
         "type": "tabs",
-        "dimension": 49.47916666666667,
         "children": [
           {
-            "id": "541a7bf5f00a8a0f",
+            "id": "8ffd4e06235bd614",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "context/design/concepts/Authentication/implementation.md/steps/response.da97aabb.md",
+                "file": "design/concepts/Authentication/implementation.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "d2a032a64dfd7778",
+            "id": "121cb387c6b9335a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "design/concepts/Rewarding/testing.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2136a7c40a262b20",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/Authentication/testing.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "28172b79c6ef09ab",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/background/detailed/concept-state.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "84cf1329a6abf7a3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/ArcTracking/ArcTracking.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "773ce98f9fad4d25",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/brainstorming/questioning.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "309c01f674c9f8e8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/Friending/Friending.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "49abde627503bf11",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/LikertSurvey/implementation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "2e6b74435ec1deb2",
-        "type": "tabs",
-        "dimension": 50.520833333333336,
-        "children": [
-          {
-            "id": "a5e53f0a4f516630",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/StatTracking/StatTracking.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1de978641faf62a8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/Rewarding/test-output.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2c27709ad47a5061",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/ArcTracking/test-output.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0576cd24073fe638",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/learning/Application Design.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "50bee923029c2d8e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/Friending/test-output.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "913fbf8e142d603c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/Authentication/test-output.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d7ba6d26bef20fe1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/Rewarding/implementation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b9942c91033060a8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "design/concepts/LikertSurvey/implementation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d3bf8b54db928c3d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
+                "file": "design/brainstorming/original-application-idea.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -286,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "design/concepts/ArcTracking/test-output.md",
+                "file": "design/brainstorming/original-application-idea.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -303,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "design/concepts/ArcTracking/test-output.md",
+                "file": "design/brainstorming/original-application-idea.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -326,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "design/concepts/ArcTracking/test-output.md"
+                "file": "design/brainstorming/original-application-idea.md"
               }
             }
           }
@@ -347,44 +159,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2c27709ad47a5061",
+  "active": "121cb387c6b9335a",
   "lastOpenFiles": [
+    "design/concepts/ArcTracking/implementation.md",
+    "design/brainstorming/original-application-idea.md",
+    "design/background/concept-specifications.md",
+    "design/concepts/Authentication/implementation.md",
+    "design/concepts/Authentication/Authentication.md",
+    "design/tools/api-extraction-from-spec.md",
+    "context/design/tools/api-extraction-from-spec.md/steps/API Specification.5b172316.md",
+    "context/design/tools/api-extraction-from-spec.md/steps/API Specification.9f5a96bb.md",
+    "context/design/tools/api-extraction-from-spec.md/steps/API Specification.f1e0087b.md",
+    "context/design/tools/api-extraction-from-spec.md/steps/API Specification.12cf4f9b.md",
+    "context/design/tools/api-extraction-from-spec.md/steps/API Specification.42915a12.md",
+    "context/design/tools/api-extraction-from-spec.md/steps/response.6d76b65d.md",
+    "context/design/tools/api-extraction-from-spec.md/20251023_214705.d8c4fdaf.md",
+    "context/design/tools/api-extraction-from-spec.md/steps/_.a66017b3.md",
+    "context/design/tools/api-extraction-from-spec.md/steps/response.f0a60191.md",
+    "context/design/tools/api-extraction-from-spec.md/steps/_.fa3ad648.md",
+    "context/design/tools/api-extraction-from-code.md/steps/response.76bffa54.md",
+    "context/design/tools/api-extraction-from-code.md/steps/_.ee4d1e5e.md",
+    "context/design/tools/api-extraction-from-code.md/steps/_.fa3ad648.md",
+    "design/tools/api-extraction-from-code.md",
+    "README.md",
+    "design/concepts/LikertSurvey/implementation.md",
+    "design/concepts/Rewarding/implementation.md",
+    "design/concepts/Authentication/test-output.md",
+    "design/concepts/Friending/test-output.md",
     "design/learning/Application Design.md",
-    "context/design/concepts/Authentication/implementation.md/steps/response.da97aabb.md",
-    "context/design/concepts/Authentication/implementation.md/steps/response.8e133976.md",
-    "context/design/concepts/Authentication/implementation.md/steps/response.5d2595d4.md",
-    "context/design/concepts/Authentication/implementation.md/steps/requires.8fffb86d.md",
-    "context/design/concepts/Authentication/implementation.md/steps/requires.4fabf80f.md",
-    "context/design/concepts/Authentication/implementation.md/steps/register (username.b249d110.md",
-    "context/design/concepts/Authentication/implementation.md/steps/prompt.9e9a2f2b.md",
-    "context/design/concepts/Authentication/implementation.md/steps/purpose.96e29a69.md",
-    "context/design/concepts/StatTracking/testing.md/steps/response.32b50a1d.md",
-    "context/design/concepts/StatTracking/testing.md/steps/approach.5df2171f.md",
-    "context/design/concepts/StatTracking/testing.md/steps/approach.3e0d5a8f.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/response.c57f3899.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/implement.5d9d1c86.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/prompt.11b97506.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/Generic Parameters.087161ea.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/approach.5df2171f.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/_.3eb68380.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/_.04e090af.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/_.331f5a1f.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/_.3731a859.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/_.b0364a7a.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/_.db39d951.md",
-    "context/design/concepts/StatTracking/implementation.md/20251023_060436.390d77da.md",
-    "context/design/concepts/StatTracking/implementation.md/20251023_060202.3eae2833.md",
-    "context/design/concepts/StatTracking/implementation.md/steps/response.e1c3585e.md",
+    "src/concept_server.ts",
+    "design/tools",
+    "context/design/tools/api-extraction-from-spec.md/steps",
+    "context/design/tools/api-extraction-from-code.md/steps",
+    "context/design/tools",
+    "context/deno.json",
     "context/design/concepts/Rewarding/testing.md/steps",
     "context/design/concepts/Rewarding/implementation.md/steps",
     "context/design/concepts/Rewarding",
     "context/design/concepts/ArcTracking/testing.md/steps",
-    "context/design/concepts/ArcTracking/implementation.md/steps",
-    "context/design/concepts/ArcTracking",
-    "context/design/concepts/StatTracking/testing.md/steps",
-    "context/design/concepts/StatTracking/implementation.md/steps",
-    "context/design/concepts/StatTracking",
-    "context/design/concepts/Authentication/testing.md/steps",
     "media/linking.png",
     "media/relative_linking.png",
     "media/obsidian_settings.png"
