@@ -29,25 +29,31 @@ export default class ArcTrackingConcept {
 
   /**
    * Creates a new arc with given name and stat, and adds the members to Members and to the progress map with initial progress set to false and initial streak set to 0; members may be empty
-   * @param {name: String, members: Set of Users} args
+   * @param {name: String, stat: String, members: Set of Users} args
    * @returns {arc: Arc}
    */
-  async createArc({ name, members }: { name: string; members: User[] }): Promise<{ arc: Arc }> {
+  async createArc({ name, stat, members }: { name: string; stat?: string; members: User[] }): Promise<{ arc: Arc }> {
     const arcId: Arc = freshID();
+    console.log('createArc called with:', { name, stat, members });
+    
     const initialProgress = members.map((user) => ({
       user,
       dailyProgress: false,
     }));
 
+    const finalStat = (stat as "HP" | "Stamina" | "Strength" | "Agility" | "Intelligence") || "HP";
+    console.log('Using stat:', finalStat);
+
     const newArc: ArcDocument = {
       _id: arcId,
       name: name,
-      stat: "HP", // Default stat, as the spec doesn't specify how to choose one. In a real app, this would be an argument.
+      stat: finalStat,
       members: members,
       streak: 0,
       progress: initialProgress,
     };
 
+    console.log('Inserting arc:', newArc);
     await this.arcs.insertOne(newArc);
     return { arc: arcId };
   }
@@ -211,6 +217,7 @@ export default class ArcTrackingConcept {
     if (!found) {
       throw new Error(`Arc with id ${arc} not found.`);
     }
+    console.log('getArc returning:', found);
     return { arc: found };
   }
 }
