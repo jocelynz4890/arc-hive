@@ -190,13 +190,27 @@ export default class ArcTrackingConcept {
    * @returns {arcs: Set of Arcs}
    */
   async getArcs({ user }: { user: User }): Promise<{ arcs: Arc[] }> {
+    // Find arcs where the user is in the members array (not that members only contains user)
     const userArcs = await this.arcs
-      .find({ members: user })
+      .find({ members: { $in: [user] } })
       .sort({ streak: -1, _id: -1 }) // Sort by streak descending, then name ascending
       .toArray();
 
     // The result should be a set of Arcs (IDs), not the full arc documents.
     const arcIds = userArcs.map((arc) => arc._id);
     return { arcs: arcIds };
+  }
+
+  /**
+   * Returns the full arc document for a given arc id.
+   * @param {arc: Arc} args
+   * @returns {arc: ArcDocument}
+   */
+  async getArc({ arc }: { arc: Arc }): Promise<{ arc: ArcDocument }> {
+    const found = await this.arcs.findOne({ _id: arc });
+    if (!found) {
+      throw new Error(`Arc with id ${arc} not found.`);
+    }
+    return { arc: found };
   }
 }
