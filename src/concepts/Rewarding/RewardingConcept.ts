@@ -173,6 +173,38 @@ export default class RewardingConcept {
   }
 
   /**
+   * Adds an avatar to a user's owned avatars list.
+   * @param user The ID of the user.
+   * @param avatar The ID of the avatar to add.
+   * @returns Success or error.
+   */
+  async addAvatar({
+    user,
+    avatar,
+  }: {
+    user: User;
+    avatar: Avatar;
+  }): Promise<Empty | { error?: string }> {
+    const reward = await this.rewards.findOne({ _id: user });
+    
+    if (!reward) {
+      return { error: `User ${user} not found.` };
+    }
+
+    // Check if avatar is already owned
+    if (reward.ownedAvatars.includes(avatar)) {
+      return {}; // Already owned, silently succeed
+    }
+
+    await this.rewards.updateOne(
+      { _id: user },
+      { $push: { ownedAvatars: avatar } }
+    );
+
+    return {};
+  }
+
+  /**
    * Returns the percentage chance associated with a given rarity.
    * @param rarity The rarity level.
    * @returns A dictionary containing the chance percentage.

@@ -161,6 +161,8 @@
   },
   "active": "121cb387c6b9335a",
   "lastOpenFiles": [
+    "scripts/seedAvatars.ts",
+    "scripts",
     "design/concepts/ArcTracking/implementation.md",
     "design/brainstorming/original-application-idea.md",
     "design/background/concept-specifications.md",
@@ -186,7 +188,6 @@
     "design/concepts/Rewarding/implementation.md",
     "design/concepts/Authentication/test-output.md",
     "design/concepts/Friending/test-output.md",
-    "design/learning/Application Design.md",
     "src/concept_server.ts",
     "design/tools",
     "context/design/tools/api-extraction-from-spec.md/steps",
@@ -196,7 +197,6 @@
     "context/design/concepts/Rewarding/testing.md/steps",
     "context/design/concepts/Rewarding/implementation.md/steps",
     "context/design/concepts/Rewarding",
-    "context/design/concepts/ArcTracking/testing.md/steps",
     "media/linking.png",
     "media/relative_linking.png",
     "media/obsidian_settings.png"
