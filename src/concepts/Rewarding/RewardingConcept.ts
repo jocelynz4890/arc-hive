@@ -277,6 +277,20 @@ export default class RewardingConcept {
     const picked = candidates[Math.floor(Math.random() * candidates.length)];
     return { avatar: picked._id };
   }
+
+  /**
+   * Gets all available avatar IDs that the user has unlocked based on their stats.
+   * This should be called from a sync that checks user stats.
+   * For now, returns all avatar definitions (will be filtered by stats in sync/frontend).
+   * @param user The ID of the user.
+   * @returns An array of avatar IDs that are available.
+   */
+  async getAvailableAvatarIds({ user }: { user: User }): Promise<{ avatarIds: Avatar[]; error?: string }> {
+    // Get all avatar definitions
+    const allAvatars = await this.avatarDefinitions.find({}).toArray();
+    // Return their IDs - frontend will filter based on user stats
+    return { avatarIds: allAvatars.map(a => a._id) };
+  }
   
 
   // --- Helper Queries (for verification and potential use by syncs) ---

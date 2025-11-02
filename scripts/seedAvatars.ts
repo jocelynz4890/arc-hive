@@ -1,5 +1,4 @@
 import { getDb } from "@utils/database.ts";
-import { ObjectId } from "npm:mongodb";
 
 const PREFIX = "Rewarding.";
 
@@ -16,7 +15,7 @@ interface AvatarDefinition {
 const avatarDefinitions: AvatarDefinition[] = [
   // --- COMMON ---
   {
-    _id: new ObjectId().toString(),
+    _id: "Voltaris", // Use name as ID for easier frontend mapping
     name: "Voltaris",
     rarity: "common",
     statAffinity: [
@@ -25,7 +24,7 @@ const avatarDefinitions: AvatarDefinition[] = [
     ],
   },
   {
-    _id: new ObjectId().toString(),
+    _id: "Vulpyx",
     name: "Vulpyx",
     rarity: "common",
     statAffinity: [
@@ -36,7 +35,7 @@ const avatarDefinitions: AvatarDefinition[] = [
 
   // --- RARE ---
   {
-    _id: new ObjectId().toString(),
+    _id: "Kael",
     name: "Kael",
     rarity: "rare",
     statAffinity: [
@@ -45,7 +44,7 @@ const avatarDefinitions: AvatarDefinition[] = [
     ],
   },
   {
-    _id: new ObjectId().toString(),
+    _id: "Juniper",
     name: "Juniper",
     rarity: "rare",
     statAffinity: [
@@ -56,7 +55,7 @@ const avatarDefinitions: AvatarDefinition[] = [
 
   // --- EPIC ---
   {
-    _id: new ObjectId().toString(),
+    _id: "Thalassa",
     name: "Thalassa",
     rarity: "epic",
     statAffinity: [
@@ -68,7 +67,7 @@ const avatarDefinitions: AvatarDefinition[] = [
     ],
   },
   {
-    _id: new ObjectId().toString(),
+    _id: "Yuki",
     name: "Yuki",
     rarity: "epic",
     statAffinity: [
@@ -82,7 +81,7 @@ const avatarDefinitions: AvatarDefinition[] = [
 
   // --- LEGENDARY ---
   {
-    _id: new ObjectId().toString(),
+    _id: "Apollo",
     name: "Apollo",
     rarity: "legendary",
     statAffinity: [
@@ -92,7 +91,7 @@ const avatarDefinitions: AvatarDefinition[] = [
     ],
   },
   {
-    _id: new ObjectId().toString(),
+    _id: "Aphrodite",
     name: "Aphrodite",
     rarity: "legendary",
     statAffinity: [
@@ -102,7 +101,7 @@ const avatarDefinitions: AvatarDefinition[] = [
     ],
   },
   {
-    _id: new ObjectId().toString(),
+    _id: "Athena",
     name: "Athena",
     rarity: "legendary",
     statAffinity: [
