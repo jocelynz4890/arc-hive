@@ -121,8 +121,9 @@ async function main() {
     const existingCount = await collection.countDocuments();
     if (existingCount > 0) {
       console.log(`Found ${existingCount} existing avatar definitions.`);
-      console.log("To reseed, please clear the collection first.");
-      return;
+      console.log("Clearing existing avatars and reseeding...");
+      await collection.deleteMany({});
+      console.log("Cleared existing avatar definitions.");
     }
 
     // Insert avatar definitions
@@ -130,8 +131,9 @@ async function main() {
     console.log(`✅ Successfully seeded ${result.insertedCount} avatar definitions:`);
     
     for (const avatar of avatarDefinitions) {
-      console.log(`  - ${avatar.name} (${avatar.rarity})`);
+      console.log(`  - ${avatar.name} (ID: ${avatar._id}, ${avatar.rarity})`);
     }
+    console.log("\n✨ Avatar seeding complete! Restart your backend server to register new endpoints.");
   } catch (error) {
     console.error("Error seeding avatars:", error);
     throw error;

@@ -20,6 +20,7 @@ interface Reward {
   _id: User; // User ID is the primary key for rewards
   points: number;
   ownedAvatars: Avatar[]; // Stores IDs of owned avatars
+  currentAvatar?: Avatar; // Stores the currently selected avatar ID
 }
 
 /**
@@ -290,6 +291,65 @@ export default class RewardingConcept {
     const allAvatars = await this.avatarDefinitions.find({}).toArray();
     // Return their IDs - frontend will filter based on user stats
     return { avatarIds: allAvatars.map(a => a._id) };
+  }
+
+  /**
+   * Gets avatar definitions by their names (useful for mapping frontend names to backend IDs).
+   * @param names An array of avatar names to look up.
+   * @returns An array of avatar definitions matching the names.
+   */
+  async getAvatarsByName({ names }: { names: string[] }): Promise<{ avatars: AvatarDefinition[]; error?: string }> {
+    const avatars = await this.avatarDefinitions
+      .find({ name: { $in: names } })
+      .toArray();
+    return { avatars };
+  }
+
+  /**
+   * Gets avatar definitions by their IDs (useful for mapping backend IDs to avatar names).
+   * @param ids An array of avatar IDs to look up.
+   * @returns An array of avatar definitions matching the IDs.
+   */
+  async getAvatarsByIds({ ids }: { ids: Avatar[] }): Promise<{ avatars: AvatarDefinition[]; error?: string }> {
+    const avatars = await this.avatarDefinitions
+      .find({ _id: { $in: ids } })
+      .toArray();
+    return { avatars };
+  }
+
+  /**
+   * Sets the user's current/active avatar.
+   * @param user The ID of the user.
+   * @param avatar The ID of the avatar to set as current.
+   * @returns Empty object on success, or error object.
+   */
+  async setCurrentAvatar({ user, avatar }: { user: User; avatar: Avatar }): Promise<Empty | { error?: string }> {
+    const reward = await this.rewards.findOne({ _id: user });
+    if (!reward) {
+      return { error: `User ${user} not found.` };
+    }
+    
+    // Verify the avatar is owned
+    if (!reward.ownedAvatars.includes(avatar)) {
+      return { error: "Avatar not owned by user." };
+    }
+    
+    await this.rewards.updateOne({ _id: user }, { $set: { currentAvatar: avatar } });
+    return {};
+  }
+
+  /**
+   * Gets the user's current/active avatar.
+   * @param user The ID of the user.
+   * @returns The current avatar ID, or empty string if not set.
+   */
+  async getCurrentAvatar({ user }: { user: User }): Promise<{ avatar: Avatar; error?: string }> {
+    const reward = await this.rewards.findOne({ _id: user });
+    if (!reward) {
+      return { avatar: "" as Avatar, error: `User ${user} not found.` };
+    }
+    
+    return { avatar: reward.currentAvatar || (reward.ownedAvatars[0] || ("" as Avatar)) };
   }
   
 
