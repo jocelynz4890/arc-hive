@@ -34,15 +34,12 @@ export default class ArcTrackingConcept {
    */
   async createArc({ name, stat, members }: { name: string; stat?: string; members: User[] }): Promise<{ arc: Arc }> {
     const arcId: Arc = freshID();
-    console.log('createArc called with:', { name, stat, members });
-    
     const initialProgress = members.map((user) => ({
       user,
       dailyProgress: false,
     }));
 
     const finalStat = (stat as "HP" | "Stamina" | "Strength" | "Agility" | "Intelligence") || "HP";
-    console.log('Using stat:', finalStat);
 
     const newArc: ArcDocument = {
       _id: arcId,
@@ -53,7 +50,6 @@ export default class ArcTrackingConcept {
       progress: initialProgress,
     };
 
-    console.log('Inserting arc:', newArc);
     await this.arcs.insertOne(newArc);
     return { arc: arcId };
   }
@@ -217,7 +213,6 @@ export default class ArcTrackingConcept {
     if (!found) {
       throw new Error(`Arc with id ${arc} not found.`);
     }
-    console.log('getArc returning:', found);
     return { arc: found };
   }
 }

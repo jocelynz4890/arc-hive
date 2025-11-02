@@ -1,11 +1,10 @@
-
 ```
 concept Rewarding
 
     purpose motivate users by granting rewards (avatars) for consistent habit completion and progress
-    
+
     principle users earn avatar points by completing arcs and maintaining streaks; points are spent in a gacha system that yields avatars based on user stat distribution
-    
+
     state
         a set of Rewards with
             a user User
@@ -18,7 +17,7 @@ concept Rewarding
             a set of StatAffinity with
 	            a stat String {HP, Stamina, Strength, Agility, Intelligence}
 	            a number Number
-    
+
     actions
         initializeRewards (user: User)
             requires user exists
@@ -27,6 +26,10 @@ concept Rewarding
         earnPoints (user: User, points: Number)
             requires user exists, points is positive
             effect increases user’s point balance
+
+        spendPoints (user: User, points: Number)
+            requires user exists, points is positive
+            effect decreases user's point balance if there are enough points to spend
 
         listAvatars (user: User): (avatars: Set of Avatar)
             requires user exists
@@ -38,5 +41,5 @@ concept Rewarding
 
 		pickRandomAvatar(availableAvatars: set of Avatar): (avatar: Avatar)
 			requires true
-			effect picks a random avatar from availableAvatars weighted by rarity 
+			effect picks a random avatar from availableAvatars weighted by rarity
 ```

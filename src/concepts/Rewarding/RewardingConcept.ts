@@ -123,6 +123,56 @@ export default class RewardingConcept {
   }
 
   /**
+   * Gets the points for a user.
+   * @param user The ID of the user.
+   * @returns The user's points.
+   */
+  async getPoints({ user }: { user: User }): Promise<{ points: number; error?: string }> {
+    const reward = await this.rewards.findOne({ _id: user });
+
+    if (!reward) {
+      return { points: 0, error: `User ${user} not found.` };
+    }
+
+    return { points: reward.points || 0 };
+  }
+
+  /**
+   * Spends points from a user's balance.
+   * @param user The ID of the user.
+   * @param points The number of points to spend.
+   * @returns Success or error.
+   */
+  async spendPoints({
+    user,
+    points,
+  }: {
+    user: User;
+    points: number;
+  }): Promise<Empty | { error?: string }> {
+    if (points < 0) {
+      return { error: "Cannot spend negative points." };
+    }
+
+    const reward = await this.rewards.findOne({ _id: user });
+    
+    if (!reward) {
+      return { error: `User ${user} not found.` };
+    }
+
+    if (reward.points < points) {
+      return { error: "Insufficient points." };
+    }
+
+    await this.rewards.updateOne(
+      { _id: user },
+      { $inc: { points: -points } }
+    );
+
+    return {};
+  }
+
+  /**
    * Returns the percentage chance associated with a given rarity.
    * @param rarity The rarity level.
    * @returns A dictionary containing the chance percentage.
@@ -152,44 +202,50 @@ export default class RewardingConcept {
     availableAvatarIds: Avatar[];
   }): Promise<{ avatar: Avatar; error?: string }> {
     if (!availableAvatarIds || availableAvatarIds.length === 0) {
-      return { avatar: "" as ID, error: "No available avatars to pick from." }; // Return a zero-value ID or handle appropriately
+      return { avatar: "" as ID, error: "No available avatars to pick from." };
     }
-
+  
+    // Fetch avatar definitions
     const avatarDefinitions = await this.avatarDefinitions
       .find({ _id: { $in: availableAvatarIds } })
       .toArray();
-
+  
     if (avatarDefinitions.length === 0) {
       return { avatar: "" as ID, error: "None of the provided avatar IDs are valid definitions." };
     }
-
-    // Calculate total weight for normalization
-    let totalWeight = 0;
-    const weightedAvatars = avatarDefinitions.map((def) => {
-      const chance = this.RARITY_CHANCES[def.rarity];
-      totalWeight += chance;
-      return { avatarId: def._id, chance: chance };
-    });
-
-    if (totalWeight === 0) {
-      return { avatar: "" as ID, error: "No valid rarities found for available avatars." };
-    }
-
-    // Pick a random number between 0 and totalWeight
-    const randomPick = Math.random() * totalWeight;
-
-    let cumulativeWeight = 0;
-    for (const weightedAvatar of weightedAvatars) {
-      cumulativeWeight += weightedAvatar.chance;
-      if (randomPick <= cumulativeWeight) {
-        return { avatar: weightedAvatar.avatarId };
+  
+    // Step 1: Pick rarity based on global chances
+    const randomRarity = (() => {
+      const roll = Math.random() * 100; // total = 100%
+      let cumulative = 0;
+      for (const [rarity, chance] of Object.entries(this.RARITY_CHANCES)) {
+        cumulative += chance;
+        if (roll <= cumulative) return rarity as Rarity;
       }
+      return "common"; // fallback
+    })();
+  
+    // Step 2: Filter avatars of that rarity
+    const candidates = avatarDefinitions.filter((a) => a.rarity === randomRarity);
+  
+    // If none of that rarity are available, fallback to next closest rarity group
+    if (candidates.length === 0) {
+      // fallback order: legendary → epic → rare → common
+      const fallbackOrder: Rarity[] = ["legendary", "epic", "rare", "common"];
+      for (const r of fallbackOrder) {
+        const group = avatarDefinitions.filter((a) => a.rarity === r);
+        if (group.length > 0) {
+          return { avatar: group[Math.floor(Math.random() * group.length)]._id };
+        }
+      }
+      return { avatar: "" as ID, error: "No valid avatars found for any rarity." };
     }
-
-    // Fallback: If somehow no avatar was picked (should not happen with correct logic)
-    // return the last avatar definition's ID as a fallback.
-    return { avatar: weightedAvatars[weightedAvatars.length - 1].avatarId };
+  
+    // Step 3: Pick a random avatar from the chosen rarity
+    const picked = candidates[Math.floor(Math.random() * candidates.length)];
+    return { avatar: picked._id };
   }
+  
 
   // --- Helper Queries (for verification and potential use by syncs) ---
 
