@@ -60,6 +60,18 @@ DAILY_REFRESH_SECRET="change-me-in-production" curl -X POST http://localhost:800
 
 All environment variables from your `.env` file should be set in Render's environment configuration for both the web service and cron job.
 
+**Required Environment Variables:**
+
+- `MONGODB_URL`: MongoDB connection string
+- `DB_NAME`: Database name
+- `DAILY_REFRESH_SECRET`: Secret for triggering daily refresh (set in both web service and cron job)
+- `PORT`: Port to bind to (Render will set this automatically)
+- `REQUESTING_ALLOWED_DOMAIN`: Frontend domain for CORS (e.g., `https://arc-hive.onrender.com`)
+
+**For Frontend:**
+
+- `VITE_API_BASE`: Backend URL (e.g., `https://arc-hive-backend.onrender.com`)
+
 ### Timezone Notes
 
 - The cron job uses UTC timezone (`0 0 * * *` = midnight UTC)
