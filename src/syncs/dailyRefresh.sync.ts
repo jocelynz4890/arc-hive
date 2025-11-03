@@ -23,10 +23,10 @@ export const DailyRefreshRequest: Sync = ({ request, secret }) => ({
  * Respond immediately after trigger so HTTP returns within 30s.
  * Heavy work runs in subsequent syncs.
  */
-export const DailyRefreshResponse: Sync = ({ request, success }) => ({
+export const DailyRefreshResponse: Sync = ({ request }) => ({
   when: actions(
     [Requesting.request, { path: "/DailyRefresh/trigger" }, { request }],
-    [DailyRefresh.trigger, {}, { success }],
+    [DailyRefresh.trigger, {}, {}],
   ),
   then: actions([Requesting.respond, { request, result: {} }]),
 });
@@ -86,7 +86,7 @@ export const NotifyAfterStatsUpdate: Sync = () => ({
 export const DailyRefreshResponseError: Sync = ({ request, error }) => ({
   when: actions(
     [Requesting.request, { path: "/DailyRefresh/trigger" }, { request }],
-    [DailyRefresh.trigger, {}, { error }],
+    [DailyRefresh.trigger, {}, {}],
   ),
   then: actions([Requesting.respond, { request, error }]),
 });
