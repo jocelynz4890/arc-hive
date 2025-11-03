@@ -23,9 +23,8 @@ const REQUESTING_TIMEOUT = parseInt(
   10,
 );
 
-// TODO: make sure you configure this environment variable for proper CORS configuration
 const REQUESTING_ALLOWED_DOMAIN = Deno.env.get("REQUESTING_ALLOWED_DOMAIN") ??
-  "*";
+  "https://arc-hive.onrender.com";
 
 // Choose whether or not to persist responses
 const REQUESTING_SAVE_RESPONSES = Deno.env.get("REQUESTING_SAVE_RESPONSES") ??
