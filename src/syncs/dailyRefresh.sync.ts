@@ -69,24 +69,11 @@ export const AwardPointsFromRefresh: Sync = ({ rewards }) => ({
 
 /**
  * Notify clients via SSE that daily refresh has completed.
+ * This chains from the stats batch update completion.
  */
-export const NotifyDailyRefreshComplete: Sync = () => ({
-  when: actions(
-    [ArcTracking.refreshAllArcs, {}, {}],
-  ),
-  then: actions(
-    [Events.emit, { event: "daily-refresh-complete" }, {}],
-  ),
-});
-
-/**
- * Emit SSE only after both stats updates and rewards have been applied for this refresh flow.
- * This binds to the same flow instance by matching both actions in the `when` clause.
- */
-export const NotifyAfterStatsAndRewards: Sync = ({}) => ({
+export const NotifyAfterStatsUpdate: Sync = () => ({
   when: actions(
     [StatTracking.batchUpdateStats, {}, {}],
-    [Rewarding.batchAwardPoints, {}, {}],
   ),
   then: actions(
     [Events.emit, { event: "daily-refresh-complete" }, {}],

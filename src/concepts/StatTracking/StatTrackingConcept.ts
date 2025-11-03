@@ -161,7 +161,7 @@ export default class StatTrackingConcept {
     updates
   }: {
     updates: Array<{ user: User; stat: string; completed: boolean }>
-  }): Promise<void> {
+  }): Promise<{ updated: number }> {
     for (const update of updates) {
       if (update.completed) {
         await this.updateStatWithCompletedTask({ user: update.user, stat: update.stat, delta: 1 });
@@ -169,6 +169,7 @@ export default class StatTrackingConcept {
         await this.updateStatWithIncompleteTask({ user: update.user, stat: update.stat, delta: 1 });
       }
     }
+    return { updated: updates.length };
   }
 
 }

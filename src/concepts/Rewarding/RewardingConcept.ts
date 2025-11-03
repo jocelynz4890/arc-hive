@@ -392,9 +392,10 @@ export default class RewardingConcept {
     awards
   }: {
     awards: Array<{ user: User; points: number }>
-  }): Promise<void> {
+  }): Promise<{ awarded: number }> {
     for (const award of awards) {
       await this.earnPoints({ user: award.user, points: award.points });
     }
+    return { awarded: awards.length };
   }
 }
