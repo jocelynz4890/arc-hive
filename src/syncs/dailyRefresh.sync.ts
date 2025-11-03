@@ -34,9 +34,9 @@ export const DailyRefreshResponse: Sync = ({ request }) => ({
 /**
  * Trigger refresh of all arcs when daily refresh is triggered.
  */
-export const TriggerRefreshArcs: Sync = ({ success }) => ({
+export const TriggerRefreshArcs: Sync = () => ({
   when: actions(
-    [DailyRefresh.trigger, {}, { success }],
+    [DailyRefresh.trigger, {}, {}],
   ),
   then: actions(
     [ArcTracking.refreshAllArcs, {}, {}],
@@ -86,7 +86,7 @@ export const NotifyAfterStatsUpdate: Sync = () => ({
 export const DailyRefreshResponseError: Sync = ({ request, error }) => ({
   when: actions(
     [Requesting.request, { path: "/DailyRefresh/trigger" }, { request }],
-    [DailyRefresh.trigger, {}, {}],
+    [DailyRefresh.trigger, {}, { error }],
   ),
   then: actions([Requesting.respond, { request, error }]),
 });
