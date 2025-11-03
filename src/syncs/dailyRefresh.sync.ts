@@ -80,6 +80,20 @@ export const NotifyDailyRefreshComplete: Sync = () => ({
 });
 
 /**
+ * Emit SSE only after both stats updates and rewards have been applied for this refresh flow.
+ * This binds to the same flow instance by matching both actions in the `when` clause.
+ */
+export const NotifyAfterStatsAndRewards: Sync = ({}) => ({
+  when: actions(
+    [StatTracking.batchUpdateStats, {}, {}],
+    [Rewarding.batchAwardPoints, {}, {}],
+  ),
+  then: actions(
+    [Events.emit, { event: "daily-refresh-complete" }, {}],
+  ),
+});
+
+/**
  * Daily refresh error handler - handles errors from trigger
  */
 export const DailyRefreshResponseError: Sync = ({ request, error }) => ({
