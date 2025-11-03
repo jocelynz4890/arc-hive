@@ -360,7 +360,7 @@ export default class RewardingConcept {
    * @param user The ID of the user.
    * @returns The reward details for the user.
    */
-  async _getRewardDetails(user: User): Promise<Reward | null> {
+  async _getRewardDetails({ user }: { user: User }): Promise<Reward | null> {
     return this.rewards.findOne({ _id: user });
   }
 
@@ -369,7 +369,7 @@ export default class RewardingConcept {
    * @param avatarId The ID of the avatar definition.
    * @returns The avatar definition.
    */
-  async _getAvatarDefinition(avatarId: Avatar): Promise<AvatarDefinition | null> {
+  async _getAvatarDefinition({ avatarId }: { avatarId: Avatar }): Promise<AvatarDefinition | null> {
     return this.avatarDefinitions.findOne({ _id: avatarId });
   }
 
@@ -378,8 +378,23 @@ export default class RewardingConcept {
    * @param user The ID of the user.
    * @returns True if the user exists, false otherwise.
    */
-  async _userExists(user: User): Promise<boolean> {
+  async _userExists({ user }: { user: User }): Promise<boolean> {
     const reward = await this.rewards.findOne({ _id: user });
     return !!reward;
+  }
+
+  /**
+   * Batch award points to multiple users.
+   * Internal action for batch daily refresh processing.
+   * @param awards Array of point awards with user ID and points
+   */
+  async batchAwardPoints({
+    awards
+  }: {
+    awards: Array<{ user: User; points: number }>
+  }): Promise<void> {
+    for (const award of awards) {
+      await this.earnPoints({ user: award.user, points: award.points });
+    }
   }
 }

@@ -26,7 +26,7 @@ Deno.test("1. Initialization and Basic Operations", async (t) => {
 
   await t.step("initializeRewards: successfully initializes rewards for a new user", async () => {
     await rewarding.initializeRewards({ user: userA });
-    const reward = await rewarding._getRewardDetails(userA);
+    const reward = await rewarding._getRewardDetails({ user: userA });
     assert(reward !== null, "Reward details should exist for userA");
     assertEquals(reward!.points, 0, "Initial points should be 0");
     assertEquals(reward!.ownedAvatars, [], "Initial owned avatars should be an empty array");
@@ -34,7 +34,7 @@ Deno.test("1. Initialization and Basic Operations", async (t) => {
 
   await t.step("initializeRewards: idempotent - does not re-initialize if user already exists", async () => {
     await rewarding.initializeRewards({ user: userA });
-    const reward = await rewarding._getRewardDetails(userA);
+    const reward = await rewarding._getRewardDetails({ user: userA });
     assert(reward !== null, "Reward details should still exist for userA");
     assertEquals(reward!.points, 0, "Points should remain 0 after re-initialization");
     assertEquals(reward!.ownedAvatars, [], "Owned avatars should remain empty after re-initialization");
@@ -42,14 +42,14 @@ Deno.test("1. Initialization and Basic Operations", async (t) => {
 
   await t.step("earnPoints: successfully adds points to a user's balance", async () => {
     await rewarding.earnPoints({ user: userA, points: 100 });
-    const reward = await rewarding._getRewardDetails(userA);
+    const reward = await rewarding._getRewardDetails({ user: userA });
     assert(reward !== null);
     assertEquals(reward!.points, 100);
   });
 
   await t.step("earnPoints: successfully adds more points", async () => {
     await rewarding.earnPoints({ user: userA, points: 50 });
-    const reward = await rewarding._getRewardDetails(userA);
+    const reward = await rewarding._getRewardDetails({ user: userA });
     assert(reward !== null);
     assertEquals(reward!.points, 150);
   });
@@ -62,7 +62,7 @@ Deno.test("1. Initialization and Basic Operations", async (t) => {
 
   await t.step("earnPoints: handles zero points correctly (no change)", async () => {
     await rewarding.earnPoints({ user: userA, points: 0 });
-    const reward = await rewarding._getRewardDetails(userA);
+    const reward = await rewarding._getRewardDetails({ user: userA });
     assert(reward !== null);
     assertEquals(reward!.points, 150); // Should remain the same
   });
@@ -71,7 +71,7 @@ Deno.test("1. Initialization and Basic Operations", async (t) => {
     const result = await rewarding.earnPoints({ user: userA, points: -20 });
     assert(result.error !== undefined, "Should return an error for negative points");
     assertEquals(result.error, "Cannot earn negative points.");
-    const reward = await rewarding._getRewardDetails(userA);
+    const reward = await rewarding._getRewardDetails({ user: userA });
     assert(reward !== null);
     assertEquals(reward!.points, 150); // Should remain the same
   });

@@ -215,4 +215,62 @@ export default class ArcTrackingConcept {
     }
     return { arc: found };
   }
+
+  /**
+   * Refresh all arcs - processes all arcs and returns aggregated results.
+   * Internal action for batch daily refresh processing.
+   * @returns Object with stat updates and rewards to be applied
+   */
+  async refreshAllArcs({}: {}): Promise<{ 
+    statUpdates: Array<{ user: User; stat: string; completed: boolean }>;
+    rewards: Array<{ user: User; points: number }>
+  }> {
+    const allArcs = await this.arcs.find({}).toArray();
+    
+    const statUpdates: Array<{ user: User; stat: string; completed: boolean }> = [];
+    const rewards: Array<{ user: User; points: number }> = [];
+    
+    for (const arcDoc of allArcs) {
+      const oldStreak = arcDoc.streak;
+      
+      // Get progress status BEFORE updating
+      const statusResult = await this.getArcStatus({ arc: arcDoc._id });
+      const progress = statusResult.status || [];
+      
+      // Build user progress info
+      const userProgress = arcDoc.members.map((member: User) => {
+        const memberProgress = progress.find((p: any) => p.user === member);
+        return {
+          user: member,
+          stat: arcDoc.stat || 'HP',
+          completed: memberProgress?.dailyProgress || false,
+        };
+      });
+      
+      // Update the arc streak
+      await this.updateArcStreak({ arc: arcDoc._id });
+      
+      // Check if all completed (streak extended)
+      const arcResult = await this.arcs.findOne({ _id: arcDoc._id });
+      const allCompleted = (arcResult?.streak || 0) > oldStreak;
+      
+      // Collect stat updates for all users in this arc
+      for (const progress of userProgress) {
+        statUpdates.push(progress);
+      }
+      
+      // If all members completed, award points to all members
+      if (allCompleted) {
+        for (const progress of userProgress) {
+          rewards.push({
+            user: progress.user,
+            points: 1,
+          });
+        }
+      }
+    }
+    
+    return { statUpdates, rewards };
+  }
+
 }

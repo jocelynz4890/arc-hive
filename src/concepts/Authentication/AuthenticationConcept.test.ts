@@ -54,18 +54,67 @@ Deno.test("Test Authentication Concept operational principle flow", async (t) =>
     const userId = (registerResult as { user: string }).user;
 
     // _getUserByUsername
-    const retrievedUserId = await auth._getUserByUsername(username);
+    const retrievedUserId = await auth._getUserByUsername({ username });
     assertEquals(retrievedUserId, userId, "Getting user ID by username should return the correct ID");
 
-    const nonExistentUserId = await auth._getUserByUsername("anotheruser");
+    const nonExistentUserId = await auth._getUserByUsername({ username: "anotheruser" });
     assertEquals(nonExistentUserId, null, "Getting user ID for non-existent user should return null");
 
     // _getUsernameById
-    const retrievedUsername = await auth._getUsernameById(userId);
+    const retrievedUsername = await auth._getUsernameById({ userId });
     assertEquals(retrievedUsername, username, "Getting username by user ID should return the correct username");
 
-    const nonExistentUsername = await auth._getUsernameById("user:nonexistent");
+    const nonExistentUsername = await auth._getUsernameById({ userId: "user:nonexistent" });
     assertEquals(nonExistentUsername, null, "Getting username for non-existent ID should return null");
+
+    await client.close();
+  });
+
+  await t.step("session management", async () => {
+    const [db, client] = await testDb();
+    const auth = new AuthenticationConcept(db);
+
+    const username = "sessionuser";
+    const password = "sessionpassword123";
+
+    // 1. Register a user
+    const registerResult = await auth.register({ username, password });
+    assertEquals(registerResult.hasOwnProperty("user"), true, "Registration should succeed");
+    const userId = (registerResult as { user: string }).user;
+
+    // 2. Create a session for the user
+    const createSessionResult = await auth.createSession({ user: userId });
+    assertEquals(createSessionResult.hasOwnProperty("token"), true, "Session creation should succeed");
+    const token = (createSessionResult as { token: string }).token;
+    assertEquals(typeof token, "string", "Session token should be a string");
+
+    // 3. Validate the session
+    const validateSessionResult = await auth.validateSession({ token });
+    assertEquals(validateSessionResult.hasOwnProperty("user"), true, "Session validation should succeed");
+    assertEquals((validateSessionResult as { user: string }).user, userId, "Validated user ID should match");
+
+    // 4. Attempt to validate with an invalid token
+    const invalidToken = "invalid-token-12345";
+    const validateInvalidResult = await auth.validateSession({ token: invalidToken });
+    assertEquals(validateInvalidResult.hasOwnProperty("error"), true, "Invalid session validation should fail");
+    assertEquals((validateInvalidResult as { error: string }).error, "Invalid or expired session token.", "Error message should be correct");
+
+    // 5. Invalidate the session
+    const invalidateResult = await auth.invalidateSession({ token });
+    assertEquals(invalidateResult.hasOwnProperty("success"), true, "Session invalidation should succeed");
+    assertEquals((invalidateResult as { success: boolean }).success, true, "Success should be true");
+
+    // 6. Validate the now-invalidated session
+    const validateAfterInvalidateResult = await auth.validateSession({ token });
+    assertEquals(validateAfterInvalidateResult.hasOwnProperty("error"), true, "Validating invalidated session should fail");
+
+    // 7. Attempt to invalidate a non-existent session
+    const invalidateNonExistentResult = await auth.invalidateSession({ token: invalidToken });
+    assertEquals(invalidateNonExistentResult.hasOwnProperty("error"), true, "Invalidating non-existent session should fail");
+
+    // 8. Attempt to create session for non-existent user
+    const createSessionNonExistentResult = await auth.createSession({ user: "nonexistent-user-id" });
+    assertEquals(createSessionNonExistentResult.hasOwnProperty("error"), true, "Creating session for non-existent user should fail");
 
     await client.close();
   });

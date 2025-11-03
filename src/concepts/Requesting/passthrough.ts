@@ -25,12 +25,32 @@
  */
 
 export const inclusions: Record<string, string> = {
-  // Feel free to delete these example inclusions
-  "/api/LikertSurvey/_getSurveyQuestions": "this is a public query",
-  "/api/LikertSurvey/_getSurveyResponses": "responses are public",
-  "/api/LikertSurvey/_getRespondentAnswers": "answers are visible",
-  "/api/LikertSurvey/submitResponse": "allow anyone to submit response",
-  "/api/LikertSurvey/updateResponse": "allow anyone to update their response",
+  // ArcTracking routes - READ-ONLY
+  "/api/ArcTracking/getArcStatus": "Get current progress status of all arc members",
+  "/api/ArcTracking/getArcs": "Get all arcs a user is a member of",
+  "/api/ArcTracking/getArc": "Get full details of a specific arc",
+
+  // Authentication routes
+  "/api/Authentication/authenticate": "Authenticate user with username and password",
+  "/api/Authentication/createSession": "Create a new session for authenticated user",
+
+  // Friending routes - READ-ONLY
+  "/api/Friending/listFriends": "Get all friends of a user",
+  "/api/Friending/getUserByFriendCode": "Look up a user by their friend code",
+  "/api/Friending/areFriends": "Check if two users are friends",
+
+  // Rewarding routes - READ-ONLY
+  "/api/Rewarding/listAvatars": "Get all avatars owned by a user",
+  "/api/Rewarding/getPoints": "Get current point balance for a user",
+  "/api/Rewarding/getRarity": "Get probability chance for a rarity level",
+  "/api/Rewarding/getAvailableAvatarIds": "Get all avatar IDs available to a user",
+  "/api/Rewarding/getAvatarsByName": "Look up avatar definitions by name",
+  "/api/Rewarding/getAvatarsByIds": "Look up avatar definitions by ID",
+  "/api/Rewarding/pickRandomAvatar": "Select a random avatar weighted by rarity",
+  "/api/Rewarding/getCurrentAvatar": "Get user's currently active avatar",
+
+  // StatTracking routes - READ-ONLY
+  "/api/StatTracking/getStats": "Get all stat values for a user",
 };
 
 /**
@@ -44,7 +64,46 @@ export const inclusions: Record<string, string> = {
  */
 
 export const exclusions: Array<string> = [
-  // Feel free to delete these example exclusions
+  // Routes used by backend syncs - should not be called directly from frontend
+  "/api/Friending/generateFriendCode",
+  "/api/StatTracking/initializeStats",
+  "/api/Rewarding/initializeRewards",
+  "/api/ArcTracking/updateArcStreak",
+  "/api/StatTracking/updateStatWithCompletedTask",
+  "/api/StatTracking/updateStatWithIncompleteTask",
+  "/api/ArcTracking/refreshAllArcs",
+  "/api/StatTracking/batchUpdateStats",
+  "/api/Rewarding/batchAwardPoints",
+  // Internal queries - should not be exposed publicly
+  "/api/Authentication/_getAllUsers",
+  "/api/Authentication/_getUserByUsername",
+  "/api/Authentication/_getUsernameById",
+  "/api/Authentication/_getUserBySession",
+  "/api/Rewarding/_getRewardDetails",
+  "/api/Rewarding/_getAvatarDefinition",
+  "/api/Rewarding/_userExists",
+  // All write operations - need authentication/authorization
+  "/api/Authentication/register",
+  "/api/Authentication/validateSession",
+  "/api/Authentication/invalidateSession",
+  "/api/DailyRefresh/trigger",
+  // ArcTracking write operations
+  "/api/ArcTracking/createArc",
+  "/api/ArcTracking/addMemberToArc",
+  "/api/ArcTracking/markProgress",
+  "/api/ArcTracking/markNoProgress",
+  // Friending write operations
+  "/api/Friending/addFriend",
+  "/api/Friending/removeFriend",
+  "/api/Friending/getFriendCodeByUsername",
+  // Rewarding write operations
+  "/api/Rewarding/earnPoints",
+  "/api/Rewarding/spendPoints",
+  "/api/Rewarding/addAvatar",
+  "/api/Rewarding/setCurrentAvatar",
+  // LikertSurvey write operations
   "/api/LikertSurvey/createSurvey",
   "/api/LikertSurvey/addQuestion",
+  "/api/LikertSurvey/submitResponse",
+  "/api/LikertSurvey/updateResponse",
 ];

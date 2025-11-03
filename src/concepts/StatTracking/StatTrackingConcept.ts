@@ -152,4 +152,23 @@ export default class StatTrackingConcept {
     return stats!;
   }
 
+  /**
+   * Batch update stats for multiple users based on completion status.
+   * Internal action for batch daily refresh processing.
+   * @param updates Array of stat updates with user ID, stat name, and whether completed
+   */
+  async batchUpdateStats({
+    updates
+  }: {
+    updates: Array<{ user: User; stat: string; completed: boolean }>
+  }): Promise<void> {
+    for (const update of updates) {
+      if (update.completed) {
+        await this.updateStatWithCompletedTask({ user: update.user, stat: update.stat, delta: 1 });
+      } else {
+        await this.updateStatWithIncompleteTask({ user: update.user, stat: update.stat, delta: 1 });
+      }
+    }
+  }
+
 }
