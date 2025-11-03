@@ -5,13 +5,11 @@ const subscribers: Set<Subscriber> = new Set();
 export function emit(event: string, data?: unknown) {
   const payload = data === undefined ? {} : data;
   const line = `event: ${event}\n` + `data: ${JSON.stringify(payload)}\n\n`;
-  console.log(`[SSE] Emitting to ${subscribers.size} subscribers: ${event}`);
   for (const sub of Array.from(subscribers)) {
     try {
       sub(line);
     } catch (_e) {
       // ignore delivery errors to disconnected clients
-      console.warn(`[SSE] Failed to deliver to subscriber:`, _e);
     }
   }
 }

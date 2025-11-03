@@ -225,9 +225,7 @@ export default class ArcTrackingConcept {
     statUpdates: Array<{ user: User; stat: string; completed: boolean }>;
     rewards: Array<{ user: User; points: number }>
   }> {
-    console.log('[ArcTracking.refreshAllArcs] Starting refresh')
     const allArcs = await this.arcs.find({}).toArray();
-    console.log(`[ArcTracking.refreshAllArcs] Found ${allArcs.length} arcs to process`)
     
     const statUpdates: Array<{ user: User; stat: string; completed: boolean }> = [];
     const rewards: Array<{ user: User; points: number }> = [];
