@@ -38,7 +38,11 @@ async function discoverConcepts(baseDir: string): Promise<ConceptInfo[]> {
     }
 
     const conceptDirName = dirEntry.name;
-    const expectedFileName = `${conceptDirName}Concept.ts`;
+    const conceptName = conceptDirName.charAt(0).toUpperCase() +
+      conceptDirName.slice(1);
+    // Be robust to directory casing differences by always looking for a
+    // PascalCase concept filename: `${PascalCase(dir) }Concept.ts`
+    const expectedFileName = `${conceptName}Concept.ts`;
     const conceptFilePath = path.join(
       absoluteBaseDir,
       conceptDirName,
@@ -47,9 +51,6 @@ async function discoverConcepts(baseDir: string): Promise<ConceptInfo[]> {
 
     try {
       await Deno.stat(conceptFilePath); // Check if file exists
-      const conceptName = conceptDirName.charAt(0).toUpperCase() +
-        conceptDirName.slice(1);
-
       concepts.push({
         name: conceptName,
         dirName: conceptDirName,
