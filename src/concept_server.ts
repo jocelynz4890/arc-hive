@@ -3,6 +3,7 @@ import { getDb } from "@utils/database.ts";
 import { walk } from "jsr:@std/fs";
 import { parseArgs } from "jsr:@std/cli/parse-args";
 import { toFileUrl } from "jsr:@std/path/to-file-url";
+import { subscribe } from "@utils/sse.ts";
 
 // Parse command-line arguments for port and base URL
 const flags = parseArgs(Deno.args, {
@@ -25,6 +26,20 @@ async function main() {
   const app = new Hono();
 
   app.get("/", (c) => c.text("Concept Server is running."));
+
+  // Server-Sent Events endpoint for frontend to subscribe to backend events
+  app.get(`${BASE_URL}/events`, (c) => {
+    const stream = subscribe();
+    return new Response(stream as ReadableStream, {
+      headers: {
+        "Content-Type": "text/event-stream",
+        "Cache-Control": "no-cache",
+        "Connection": "keep-alive",
+        // Allow CORS in case frontend served separately
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+  });
 
   // --- Dynamic Concept Loading and Routing ---
   console.log(`Scanning for concepts in ./${CONCEPTS_DIR}...`);
