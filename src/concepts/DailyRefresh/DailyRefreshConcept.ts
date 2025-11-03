@@ -27,4 +27,3 @@ export default class DailyRefreshConcept {
     return { success: true };
   }
 }
-

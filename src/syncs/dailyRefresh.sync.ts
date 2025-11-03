@@ -20,6 +20,18 @@ export const DailyRefreshRequest: Sync = ({ request, secret }) => ({
 });
 
 /**
+ * Respond immediately after trigger so HTTP returns within 30s.
+ * Heavy work runs in subsequent syncs.
+ */
+export const DailyRefreshResponse: Sync = ({ request, success }) => ({
+  when: actions(
+    [Requesting.request, { path: "/DailyRefresh/trigger" }, { request }],
+    [DailyRefresh.trigger, {}, { success }],
+  ),
+  then: actions([Requesting.respond, { request, result: {} }]),
+});
+
+/**
  * Trigger refresh of all arcs when daily refresh is triggered.
  */
 export const TriggerRefreshArcs: Sync = ({ success }) => ({
@@ -53,17 +65,6 @@ export const AwardPointsFromRefresh: Sync = ({ rewards }) => ({
   then: actions(
     [Rewarding.batchAwardPoints, { awards: rewards }, {}],
   ),
-});
-
-/**
- * Daily refresh response handler - completes the HTTP request
- */
-export const DailyRefreshResponse: Sync = ({ request, success }) => ({
-  when: actions(
-    [Requesting.request, { path: "/DailyRefresh/trigger" }, { request }],
-    [DailyRefresh.trigger, {}, { success }],
-  ),
-  then: actions([Requesting.respond, { request, result: {} }]),
 });
 
 /**
