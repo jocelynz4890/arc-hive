@@ -5,6 +5,7 @@ import { freshID } from "@utils/database.ts";
 import { ID } from "@utils/types.ts";
 import { exclusions, inclusions } from "./passthrough.ts";
 import "jsr:@std/dotenv/load";
+import { subscribe } from "@utils/sse.ts";
 
 /**
  * # Requesting concept configuration
@@ -252,6 +253,18 @@ export function startRequestingServer(
    */
 
   const routePath = `${REQUESTING_BASE_URL}/*`;
+  // SSE endpoint served via Requesting concept
+  app.get(`${REQUESTING_BASE_URL}/events`, (c) => {
+    const stream = subscribe();
+    return new Response(stream as ReadableStream, {
+      headers: {
+        "Content-Type": "text/event-stream",
+        "Cache-Control": "no-cache",
+        "Connection": "keep-alive",
+        "Access-Control-Allow-Origin": REQUESTING_ALLOWED_DOMAIN,
+      },
+    });
+  });
   app.post(routePath, async (c) => {
     try {
       const body = await c.req.json();

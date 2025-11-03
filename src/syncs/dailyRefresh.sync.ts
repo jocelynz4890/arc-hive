@@ -3,7 +3,7 @@
  * Uses request/response model to properly handle HTTP passthrough.
  */
 
-import { DailyRefresh, ArcTracking, StatTracking, Rewarding, Requesting } from "@concepts";
+import { DailyRefresh, ArcTracking, StatTracking, Rewarding, Requesting, Events } from "@concepts";
 import { actions, Sync } from "@engine";
 
 /**
@@ -64,6 +64,18 @@ export const AwardPointsFromRefresh: Sync = ({ rewards }) => ({
   ),
   then: actions(
     [Rewarding.batchAwardPoints, { awards: rewards }, {}],
+  ),
+});
+
+/**
+ * Notify clients via SSE that daily refresh has completed.
+ */
+export const NotifyDailyRefreshComplete: Sync = () => ({
+  when: actions(
+    [ArcTracking.refreshAllArcs, {}, {}],
+  ),
+  then: actions(
+    [Events.emit, { event: "daily-refresh-complete" }, {}],
   ),
 });
 
