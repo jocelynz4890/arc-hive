@@ -32,7 +32,7 @@ export const InitializeNewUser: Sync = ({ user, username }) => ({
   ),
   then: actions(
     [Friending.generateFriendCode, { user: username }],
-    [StatTracking.initializeStats, { user }],
+    [StatTracking.initializeStats, { user: username }],
     [Rewarding.initializeRewards, { user: username }],
   ),
 });
