@@ -6,6 +6,7 @@ export default class EventsConcept {
   constructor(_db: Db | unknown) {}
 
   async emit({ event, payload }: { event: string; payload?: unknown }): Promise<{ ok: true }>{
+    console.log(`[Events.emit] Called with event="${event}"`, payload);
     emit(event, payload);
     return { ok: true };
   }

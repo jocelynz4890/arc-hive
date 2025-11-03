@@ -5,11 +5,13 @@ const subscribers: Set<Subscriber> = new Set();
 export function emit(event: string, data?: unknown) {
   const payload = data === undefined ? {} : data;
   const line = `event: ${event}\n` + `data: ${JSON.stringify(payload)}\n\n`;
+  console.log(`[SSE] Emitting to ${subscribers.size} subscribers: ${event}`);
   for (const sub of Array.from(subscribers)) {
     try {
       sub(line);
     } catch (_e) {
       // ignore delivery errors to disconnected clients
+      console.warn(`[SSE] Failed to deliver to subscriber:`, _e);
     }
   }
 }
@@ -32,6 +34,7 @@ export function subscribe(): ReadableStream {
         }
       };
       subscribers.add(send);
+      console.log(`[SSE] New subscriber connected, total subscribers: ${subscribers.size}`);
       // initial comment and retry hint
       send(`: connected ${Date.now()}\n\n`);
       send(`retry: 5000\n\n`);
@@ -43,6 +46,7 @@ export function subscribe(): ReadableStream {
       closed = true;
       if (interval !== undefined) clearInterval(interval);
       if (send) subscribers.delete(send);
+      console.log(`[SSE] Subscriber disconnected, remaining subscribers: ${subscribers.size}`);
     },
   });
 }
